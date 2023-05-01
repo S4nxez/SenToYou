@@ -1,4 +1,4 @@
 package org.example.ui;
 
-public class MainPaquete {
+public class UI {
 }
