@@ -1,4 +1,17 @@
 package org.example.service;
 
-public class TrabajaConNosotrosService {
+
+
+import org.example.domain.Trabajo;
+
+import java.util.ArrayList;
+import java.util.Date;
+public class TrabajaConNosotrosService extends Trabajo{
+    ArrayList<Trabajo> Trabajos = new ArrayList();
+     private boolean verificarEdad(Date fechaNac){
+         return ;
+     }
+     private String getJobInfo(){
+         return ;
+     }
 }

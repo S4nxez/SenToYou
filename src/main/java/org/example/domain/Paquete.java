@@ -6,7 +6,7 @@ public class Paquete {
     public void setEstado(String estado){
         if (estado.equals("")){
         }else {
-            this.estado="hola";
+            this.estado="";
         }
     }
 }
