@@ -6,11 +6,11 @@ public class TarifaService extends UserDao { // Aqui no se por que hemos puesto 
     private float precioMes;
     private float precioBase;
 
-    private boolean setPrecioMes(float precioMes){
-        return ;
+    private void setPrecioMes(float precioMes){
+        this.precioMes= precioMes;
     }
-    private boolean setPrecioBase(float precioBase){
-        return ;
+    private void setPrecioBase(float precioBase){ //esto en el diagrama de clases era un boolean por lo que sea y el setPrecioMes de arriba tambien
+        this.precioBase=precioBase;
     }
     private float getShippingPrice(User user){
         return ;
