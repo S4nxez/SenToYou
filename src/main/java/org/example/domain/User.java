@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class User {
-    String name, email, direccion, username, pwd;
+    private String name, email, direccion, username, pwd;
     LocalDate fecha_nac = LocalDate.now();
 
 
@@ -19,6 +19,9 @@ public class User {
     }
     private boolean removeFriend(User amigo){
         return ;
+    }
+    public String getUsrName(){
+        return name;
     }
 
     public User(String name, String email, String direccion, LocalDate fecha_nac, String username, String pwd) {

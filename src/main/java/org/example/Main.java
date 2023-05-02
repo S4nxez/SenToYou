@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.dao.UserDao;
 import org.example.domain.User;
 
 import java.time.LocalDate;
@@ -42,7 +43,12 @@ public class Main {
                   System.out.print("Nombre de usuario: ");String usrName= sc.nextLine();
                   System.out.print("Contraseña: ");String pwd= sc.nextLine();
                 User user= new User(nombre,email,direccion,fechaNac,usrName,pwd);
-                comunidad.add(user);
+                boolean t = false;
+                for (int i = 0; i < comunidad.size(); i++) {
+                    if(!UserDao.guardar(user,comunidad,i))t=true;
+                }
+                if(t) System.out.println("Username no disponible");
+                else comunidad.add(user);
                 break;
         }
     }
