@@ -20,6 +20,12 @@ public class Main {
 
         switch (o){
             case 1:
+                System.out.println("---------------------");
+                System.out.println("Iniciar Sesión");
+                System.out.println("---------------------");
+                  System.out.print("Nombre de usuario:"); String usrNameLI=sc.nextLine();
+                  System.out.print("Contraseña: "); String pwdLI=sc.nextLine();
+
                 break;
             case 2:
                 System.out.println("---------------------");
@@ -30,7 +36,7 @@ public class Main {
                   System.out.print("Dirección: ");String direccion=sc.nextLine();
                   System.out.print("Fecha Nacimiento: ");
                   System.out.print("             Año: ");int anyo= sc.nextInt();
-                  System.out.print("             Mes: ");int mes= sc.nextInt();//mes--;
+                  System.out.print("             Mes: ");int mes= sc.nextInt();//mes--; hay clases para las fechas que usan enero para el 0 la que he puesto creo que no.
                   System.out.print("             Día: ");int dia= sc.nextInt();
                   LocalDate fechaNac= LocalDate.of(anyo,mes,dia);
                   System.out.print("Nombre de usuario: ");String usrName= sc.nextLine();
@@ -39,6 +45,5 @@ public class Main {
                 comunidad.add(user);
                 break;
         }
-
     }
 }
