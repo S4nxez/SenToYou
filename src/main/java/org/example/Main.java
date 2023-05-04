@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.dao.UserDao;
 import org.example.domain.User;
+import org.example.service.UserService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,7 +28,11 @@ public class Main {
                   System.out.print("Nombre de usuario:"); String usrNameLI=sc.nextLine();
                   System.out.print("Contraseña: "); String pwdLI=sc.nextLine();
 
+                //Aqui hay que usar primero el find by username y luego pasar al metodo de userservice de login los datos que ha metido para que los compare con los que esten en ese user
+                UserService.login();
                 break;
+
+                
             case 2:
                 System.out.println("---------------------");
                 System.out.println("Registro");
@@ -44,7 +49,8 @@ public class Main {
                   System.out.print("Contraseña: ");String pwd= sc.nextLine();
                 User user= new User(nombre,email,direccion,fechaNac,usrName,pwd);
                 boolean t = false;
-                for (int i = 0; i < comunidad.size(); i++) {
+                if (comunidad.size()==0)comunidad.add(user); //aqui marca error porque no cuenta con que esto se vaya a repetir, habria que hacer el registro y el login metodos de otras clases pero no se de cual.
+                for (int i = 0; i != comunidad.size(); i++) {
                     if(!UserDao.guardar(user,comunidad,i))t=true;
                 }
                 if(t) System.out.println("Username no disponible");

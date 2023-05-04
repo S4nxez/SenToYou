@@ -33,4 +33,7 @@ public class User {
         this.pwd = pwd;
         ArrayList<User> Friends = new ArrayList();
     }
+    public User(){
+
+    }
 }
