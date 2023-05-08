@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.dao.UserDao;
+import org.example.domain.Paquete;
 import org.example.domain.User;
 import org.example.service.UserService;
 
@@ -13,6 +14,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         ArrayList<User> comunidad = new ArrayList();
+        User user = new User();
+        boolean logeao=false;
         // Esto es solo para el user
         System.out.println("Bienvenido, selecciona una opción:");
         System.out.println("1.Iniciar sesión");
@@ -31,6 +34,7 @@ public class Main {
                 //Aqui hay que usar primero el find by username y luego pasar al metodo de userservice de login los datos que ha metido para que los compare con los que esten en ese user
                 if (UserService.login(usrNameLI,pwdLI, UserService.findByUsername(usrNameLI,comunidad))){
                     System.out.println("Login correcto");
+                    logeao=true;
                 }
                 break;
 
@@ -51,7 +55,7 @@ public class Main {
                   sc.nextLine();
                   System.out.print("Nombre de usuario: ");String usrName= sc.nextLine();
                   System.out.print("Contraseña: ");String pwd= sc.nextLine();
-                User user= new User(nombre,email,direccion,fechaNac,usrName,pwd);
+                user= new User(nombre,email,direccion,fechaNac,usrName,pwd);
                 boolean t = false;
                 if (comunidad.size()==0)comunidad.add(user); //aquí marca error porque no cuenta con que esto se vaya a repetir, habria que hacer el registro y el login metodos de otras clases pero no se de cual.
                 for (int i = 0; i != comunidad.size(); i++) {
@@ -60,6 +64,31 @@ public class Main {
                 if(t) System.out.println("Username no disponible");
                 else comunidad.add(user);
                 break;
+        }
+        if(logeao){
+            System.out.println("klk, "+user.getUsrName()+" vamo a lokia con los paquetes");
+            System.out.println("1.Enviar paquete");
+            System.out.println("2.Consultar estado");
+            System.out.println("3.Gestionar perfil");
+            System.out.println("4.Añadir amigo");
+            System.out.println("5.Consultar tarifas");
+            int u = sc.nextInt();
+            switch (u){
+                case 1:
+                    System.out.println("Dime el peso con decimales y en kilos");
+                    float pesoLI = sc.nextFloat();
+                    Paquete paquete= new Paquete(user,);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+
+            }
         }
     }
 }
