@@ -9,19 +9,22 @@ public class User {
 
 
     public boolean sendPackage(Package Package, String nombreReceptor){
-        return;
+        return true;
     }
     private String getEstadoPaquete(String paquete_id){// este metodo igual nos colamos en el DC al ponerlo aqui creo que tendria que estar en paquete en la carpeta domain
-        return ;
+        return "";
     }
     private boolean addFriend(User amigo){
-        return ;
+        return true;
     }
     private boolean removeFriend(User amigo){
-        return ;
+        return true;
     }
     public String getUsrName(){
         return name;
+    }
+    public String getPwd(){
+        return pwd;
     }
 
     public User(String name, String email, String direccion, LocalDate fecha_nac, String username, String pwd) {
