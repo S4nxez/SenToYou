@@ -14,7 +14,6 @@ public class Paquete {
     }
     private void enviar_paquete(User emisor, String friend_recipient_Usrname, Paquete paquete){
 
-
     }
 
 

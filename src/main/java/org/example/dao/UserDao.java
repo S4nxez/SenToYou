@@ -2,6 +2,11 @@ package org.example.dao;
 
 import org.example.domain.User;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.ObjectOutputStream;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -19,4 +24,13 @@ public class UserDao extends User {
     /*private User findByUserName(String userName){
         return ;
     }*/
+
+
+    //Metodo para guardar los usuarios creados en un fichero antes de cerrar el programa.
+    public static void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException{ //esto tampoco deberia ser static
+        FileOutputStream fout=new FileOutputStream("Usuarios.txt");
+        try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
+            out.writeObject(user);
+        }
+    }
 }
