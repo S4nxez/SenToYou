@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.example.common.*;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
@@ -16,12 +17,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ArrayList<User> comunidad = new ArrayList();
         User user = new User();
+        Constantes cos= new Constantes();
         boolean logeao=false;
         // Esto es solo para el user
-        System.out.println("Bienvenido, selecciona una opción:");
-        System.out.println("1.Iniciar sesión");
-        System.out.println("2.Registrarse");
-        System.out.println("3.Guardar y salir");
+        cos.bienvenidoUser();
         boolean salir=false;
         int o = sc.nextInt();
         while(!salir) {

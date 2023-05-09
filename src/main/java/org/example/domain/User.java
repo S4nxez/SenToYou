@@ -7,13 +7,14 @@ public class User {
     private String name, email, direccion, username, pwd;
     LocalDate fecha_nac = LocalDate.now();
 
-
     public boolean sendPackage(Package Package, String nombreReceptor){
         return true;
     }
+
     private String getEstadoPaquete(String paquete_id){// este metodo igual nos colamos en el DC al ponerlo aqui creo que tendria que estar en paquete en la carpeta domain
         return "";
     }
+
     private boolean addFriend(User amigo){
         return true;
     }
@@ -23,6 +24,7 @@ public class User {
     public String getUsrName(){
         return name;
     }
+
     public String getPwd(){
         return pwd;
     }
@@ -36,7 +38,7 @@ public class User {
         this.pwd = pwd;
         ArrayList<User> Friends = new ArrayList();
     }
-    public User(){
 
+    public User(){
     }
 }
