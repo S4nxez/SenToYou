@@ -36,7 +36,7 @@ public class User {
         this.fecha_nac = fecha_nac;
         this.username = username;
         this.pwd = pwd;
-        ArrayList<User> Friends = new ArrayList();
+        ArrayList<User> Friends = new ArrayList();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS
     }
 
     public User(){

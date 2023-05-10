@@ -1,4 +1,4 @@
-package org.example.service;
+/*package org.example.service;
 
 
 
@@ -14,4 +14,4 @@ public class TrabajaConNosotrosService extends Trabajo{
      private String getJobInfo(){
          return "";
      }
-}
+} BORRAR*/
