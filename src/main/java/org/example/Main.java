@@ -15,13 +15,13 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Scanner sc = new Scanner(System.in);
-        ArrayList<User> comunidad = new ArrayList();
-        User user = new User();
         Constantes cos= new Constantes();
         boolean logeao=false;
         boolean salir=false;
         int o = sc.nextInt();
         while(!salir) {
+            // Esto es solo para el user
+            System.out.println(Constantes.BIENVENIDA);
             switch (o) {
                 case 1:
                     System.out.println("---------------------");
@@ -60,7 +60,9 @@ public class Main {
                     String usrName = sc.nextLine();
                     System.out.print(Constantes.CONTRASENYA);
                     String pwd = sc.nextLine();
-                    user = new User(nombre, email, direccion, fechaNac, usrName, pwd);
+                    UserDao userdao = new UserDao();
+
+                     new User(nombre, email, direccion, fechaNac, usrName, pwd);
                     boolean t = false;
                     if (comunidad.size() == 0)
                         comunidad.add(user); //aquí marca error porque no cuenta con que esto se vaya a repetir, habria que hacer el registro y el login metodos de otras clases pero no se de cual.
@@ -80,13 +82,13 @@ public class Main {
 
         }
         if(logeao){
-            System.out.println("klk, "+user.getUsrName()+" vamo a lokia con los paquetes");
-            System.out.println("1.Enviar paquete");
-            System.out.println("2.Consultar estado");
-            System.out.println("3.Gestionar perfil");
-            System.out.println("4.Añadir amigo");
-            System.out.println("5.Consultar tarifas");
-            System.out.println("6.Guardar Users creados");
+            System.out.println("Hola, "+user.getUsrName()+" selecciona una opción:"); //esto no se como ponerlo con constantes con lo del getter
+            System.out.println(Constantes.OP1);
+            System.out.println(Constantes.OP2);
+            System.out.println(Constantes.OP3);
+            System.out.println(Constantes.OP4);
+            System.out.println(Constantes.OP5);
+            System.out.println(Constantes.OP6);
             int u = sc.nextInt();
             switch (u){
                 case 1:
