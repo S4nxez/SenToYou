@@ -48,11 +48,11 @@ public class Main {
                     System.out.print(Constantes.DIRECCION);
                     String direccion = sc.nextLine();
                     System.out.println(Constantes.FECHA);
-                    System.out.print("             Año: ");
+                    System.out.print("             "+Constantes.ANYO+": ");
                     int anyo = sc.nextInt();
-                    System.out.print("             Mes: ");
+                    System.out.print("             "+Constantes.MES+": ");
                     int mes = sc.nextInt();//mes--; hay clases para las fechas que usan enero para el 0 la que he puesto creo que no.
-                    System.out.print("             Día: ");
+                    System.out.print("             "+Constantes.DIA+": ");
                     int dia = sc.nextInt();
                     LocalDate fechaNac = LocalDate.of(anyo, mes, dia);
                     sc.nextLine();
@@ -90,7 +90,7 @@ public class Main {
             int u = sc.nextInt();
             switch (u){
                 case 1:
-                    System.out.println("Dime el peso con decimales y en kilos");
+                    System.out.println(Constantes.PESO);
                     float pesoLI = sc.nextFloat();
  //                   Paquete paquete= new Paquete(user,);
                     break;
