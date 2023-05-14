@@ -11,7 +11,6 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Service serv = new Service();
         Scanner sc = new Scanner(System.in);
-        Constantes cos= new Constantes();
 
         boolean logeao=false, salir=false;
         String usrname="";
@@ -26,6 +25,7 @@ public class Main {
                     System.out.println(Constantes.LOGIN);
                     System.out.println("---------------------");
                     System.out.println(Constantes.USRNAME);
+                    sc.next();
                     usrname = sc.nextLine();
                     System.out.print(Constantes.CONTRASENYA);
                     String clave = sc.nextLine();
@@ -67,19 +67,14 @@ public class Main {
 
         }
         if(logeao){
-            System.out.println("Bienvenid@, "+usrname+" selecciona una opción:"); //esto no se como ponerlo con constantes con lo del getter
-            System.out.println(Constantes.OP1);
-            System.out.println(Constantes.OP2);
-            System.out.println(Constantes.OP3);
-            System.out.println(Constantes.OP4);
-            System.out.println(Constantes.OP5);
-            System.out.println(Constantes.OP6);
+            System.out.println(Constantes.BIENVENIDALOGIN);
+            System.out.println(Constantes.OPCIONESLOGIN);
             int u = sc.nextInt();
             switch (u){
                 case 1:
                     System.out.println(Constantes.PESO);
                     float pesoLI = sc.nextFloat();
- //                   Paquete paquete= new Paquete(user,);
+                    //Paquete paquete= new Paquete(user,);
                     break;
                 case 2:
                     break;
@@ -92,5 +87,7 @@ public class Main {
 
             }
         }
+        sc.close();
+
     }
 }

@@ -1,18 +1,13 @@
 package org.example.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable{
     private String name, email, direccion, username, pwd;
     LocalDate fecha_nac = LocalDate.now();
 
-    private boolean addFriend(User amigo){
-        return true;
-    }
-    private boolean removeFriend(User amigo){
-        return true;
-    }
     public String getUsrName(){
         return name;
     }
@@ -30,7 +25,7 @@ public class User {
         this.fecha_nac = fecha_nac;
         this.username = username;
         this.pwd = pwd;
-        ArrayList<String> Friends = new ArrayList();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS usando username como clave primaria
+        ArrayList<String> Friends = new ArrayList<String>();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS usando username como clave primaria
     }
     public User(){
     }

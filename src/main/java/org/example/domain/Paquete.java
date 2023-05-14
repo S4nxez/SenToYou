@@ -1,24 +1,52 @@
 package org.example.domain;
 
-public class Paquete {
-    String estado, nombre_destinatario;
-    static int paquete_id;//he puesto static que no se si es eso porque quiero que vaya añadiendo uno cada vez que cree un paquete nuevo
-    float peso;
+import java.io.Serializable;
 
-    public Paquete(User UsuarioEmisor, String estado, String nombre_destinatario, float peso) {
-        User emisor = UsuarioEmisor;
-        paquete_id++;
+import org.example.service.Service;
+
+public class Paquete implements Serializable {
+    private String estado, nombre_destinatario;
+    private int paquete_id;
+    private float peso;
+    Service serv = new Service();
+
+    public Paquete(User UsuarioEmisor, String nombre_destinatario, float peso, String estado, int paquete_id) {
+        nombre_destinatario = UsuarioEmisor.getUsrName();
+        this.paquete_id= paquete_id;
         this.estado = estado;
         this.nombre_destinatario = nombre_destinatario;
         this.peso = peso;
     }
 
-
-    private String getEstadoPaquete(String paquete_id){
-        return "";
+    public String getNombre_destinatario() {
+        return nombre_destinatario;
     }
 
-    public void setEstadoPaquete(String estado){
-        this.estado=estado;
+    public void setNombre_destinatario(String nombre_destinatario) {
+        this.nombre_destinatario = nombre_destinatario;
+    }
+
+    public String getEstado(){
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getPaquete_id() {
+        return paquete_id;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPaquete_id(int paquete_id) {
+        this.paquete_id = paquete_id;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
     }
 }
