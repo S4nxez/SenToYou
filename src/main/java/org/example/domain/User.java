@@ -27,6 +27,5 @@ public class User implements Serializable{
         this.pwd = pwd;
         ArrayList<String> Friends = new ArrayList<String>();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS usando username como clave primaria
     }
-    public User(){
-    }
+    public User(){}
 }
