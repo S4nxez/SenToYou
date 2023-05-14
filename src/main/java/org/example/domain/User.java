@@ -16,7 +16,9 @@ public class User {
     public String getUsrName(){
         return name;
     }
-
+    public String getEmail() {
+        return email;
+    }
     public String getPwd(){
         return pwd;
     }

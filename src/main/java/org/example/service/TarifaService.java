@@ -1,7 +1,5 @@
 package org.example.service;
 
-import org.example.dao.UserDao;
-
 public class TarifaService { //extends userdao Aqui no se por que hemos puesto que es hijo de UserDao
     private float precioMes;
     private float precioBase;
