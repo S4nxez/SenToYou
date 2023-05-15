@@ -9,10 +9,11 @@ import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Userdao {
     //El arraylist de todos los usuarios
-    private ArrayList<User> comunidad = new ArrayList<User>();
+    private ArrayList<User> comunidad = new ArrayList<>();
     
     //El constructor de userdao para inicializarlo en el service
     public Userdao(){}
@@ -84,6 +85,10 @@ public class Userdao {
     
     public boolean removeFriend(User amigo){
         return true;
+    }
+
+    public ArrayList<User> getComunidad() {
+        return comunidad;
     }
 
 }

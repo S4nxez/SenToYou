@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class PaqueteDao {
-    ArrayList<Paquete> paquetes = new ArrayList<Paquete>();
+    ArrayList<Paquete> paquetes = new ArrayList<>();
     int codigo=0;
     public void enviar_paquete(User emisor, String receptor, float peso){  
         codigo++;
