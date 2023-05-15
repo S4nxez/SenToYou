@@ -12,27 +12,31 @@ public class Main {
         Service serv = new Service();
         Scanner sc = new Scanner(System.in);
 
-        boolean logeao=false, salir=false;
+        boolean logeao=false;
         String usrname="";
+        int o=0;
 
-        while(!salir) {
+        while(o!=3) {
             // Esto es solo para el user
             System.out.println(Constantes.BIENVENIDA);
-            int o = sc.nextInt();
+            o = sc.nextInt();
             switch (o) {
                 case 1:
                     System.out.println("---------------------");
                     System.out.println(Constantes.LOGIN);
                     System.out.println("---------------------");
                     System.out.println(Constantes.USRNAME);
-                    sc.next();
+                    sc.nextLine();
                     usrname = sc.nextLine();
                     System.out.print(Constantes.CONTRASENYA);
                     String clave = sc.nextLine();
-                    serv.checkLogin(usrname,clave);
+                    if(serv.login(usrname,clave)) {
+                        logeao = true;
+                        o=3;
+                    }
+                    else
+                        System.out.println(Constantes.LOGINFALSE);
                     break;
-
-
                 case 2:
                     sc.nextLine();
                     System.out.println("---------------------");
@@ -61,7 +65,6 @@ public class Main {
                     serv.register(name, email, direccion, fechaNac, usrname, pwd);
                     break;
                 case 3:
-                    salir=true;
                     break;
             }
 

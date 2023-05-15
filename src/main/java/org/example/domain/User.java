@@ -2,6 +2,7 @@ package org.example.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class User implements Serializable{
@@ -20,8 +21,20 @@ public class User implements Serializable{
 
     public User(){}
 
+    public User(String linea){
+        String[] campos = linea.split(":");
+        name = campos[0];
+        email = campos[1];
+        direccion = campos[2];
+        //Convertir fecha_nac a LocalDate
+        fecha_nac = LocalDate.parse(campos[3], DateTimeFormatter.ofPattern("yyyy-dd-MM"));
+        username = campos[4];
+        pwd = campos[5];
+    }
+
+
     public String getUsrName(){
-        return name;
+        return username;
     }
 
     public String getEmail() {
@@ -34,6 +47,6 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "Name: "+name+" E-Mail: "+email+" Address: "+direccion+" Birthdate: "+fecha_nac+" Username: "+username+" Password: "+pwd;
+        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":";
     }
 }
