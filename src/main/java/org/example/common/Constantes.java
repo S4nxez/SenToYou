@@ -19,5 +19,5 @@ public class Constantes {
     public static final String ANYO= "Año";
     public static final String USRNODISP= "Username no disponible";
     public static final String PESO= "Dime el peso con decimales y en kilos";
-
+    public static final String RECIPIENT_USRNM= "Introduzca el nombre de usuario del receptor";
 }
