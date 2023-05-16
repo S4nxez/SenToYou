@@ -32,7 +32,7 @@ public class Paquete implements Serializable {
     }
     @Override
     public String toString() {
-        return paquete_id+":"+estado+":"+nombre_destinatario+":"+peso+":"+nombre_destinatario+":"+nombre_emisor+":"++":";
+        return paquete_id+":"+estado+":"+nombre_destinatario+":"+peso+":"+nombre_destinatario+":"+nombre_emisor;//+":"++":";
     }
 
     public String getNombre_destinatario() {

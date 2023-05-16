@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Admindao {
 
     public Admindao() {}
-    Userdao usr = new Userdao();
+    UserDao usr = new UserDao();
 
     //Crear un nuevo usuario administrador en el sistema
     public void crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
@@ -36,6 +36,7 @@ public class Admindao {
      * @param administrador Parametro que recoge el nombre de usuario del administrador que realiza la peticion de cambio de la clave.
      */
     public void setPassword(String administrador) {
+        listarUsuarios();
         final Scanner sc = new Scanner(System.in);
         System.out.println(Constantes.SETPWDNOMBRE);//"Por favor, introduzca el nombre del usuario al que quieras cambiarle la contraseña"
         String victima = sc.nextLine();
@@ -50,8 +51,8 @@ public class Admindao {
                 String pwdconfirmacion = sc.nextLine();
                 if (newpwd.equals(pwdconfirmacion)) {
                     usr.getUser(victima).setPwd(newpwd);
-                    System.out.println(Constantes.PWDCHANGED);
-                    !salir;
+                    System.out.println("Constantes.PWDCHANGED");
+                    salir=true;
                 }
             }
         }

@@ -1,7 +1,8 @@
 package org.example.service;
 
-import org.example.dao.Userdao;
+import org.example.dao.UserDao;
 import org.example.domain.User;
+import org.example.dao.Admindao;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,8 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Service {
-    Userdao usrdao= new Userdao();
-//    Admindao admin = new Admindao();
+    UserDao usrdao= new UserDao();
+    Admindao admin = new Admindao();
     public Service() {}
 
     public boolean guardar(User user, ArrayList<User> comunidad, int i) {
@@ -47,4 +48,19 @@ public class Service {
     public ArrayList<User> getComunidad() {
         return usrdao.getComunidad();
     }
+
+    public void crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
+            String pwd) throws FileNotFoundException, ClassNotFoundException, IOException {
+        admin.crearAdmin(name, email, direccion, fecha_nac, username, pwd);
+    }
+
+    public void setPassword(String administrador) {
+        admin.setPassword(administrador);
+    }
+
+    public void listarUsuarios() {
+        admin.listarUsuarios();
+    }
+
+
 }

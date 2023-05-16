@@ -26,5 +26,7 @@ public class Constantes {
     public static final String ASKNEWPWD= "Introduzca la nueva contraseña: ";
     public static final String CONFIRMPWD= "Confirme la nueva contraseña: ";
     public static final String PWDCHANGED= "La contraseña ha sido cambiada correctamente.";
-    
+    public static final String LOGINADMIN= "1.- Cambiar la contraseña de un usuario\n2.- Listar todos los usuarios\n3.- Crear un nuevo usuario\n4.- Eliminar un usuario";
+    public static final String ADMINONORMAL= "Quieres que el usuario sea administrador? (y/n)";
+    public static final String USERCREADO= "Listo, se ha creado un usuario nuevo que se llama ";
 }
