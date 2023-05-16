@@ -11,18 +11,20 @@ import java.util.ArrayList;
 
 public class PaqueteDao {
     ArrayList<Paquete> paquetes = new ArrayList<>();
-    int codigo=0;
-    public void enviar_paquete(User emisor, String receptor, float peso){  
-        codigo++;
-        Paquete nuevoPaquete = new Paquete(emisor, receptor, peso, "", codigo);
+
+    public void enviarPaquete(User emisor, String receptor, float peso) throws IOException {
+
+        Paquete nuevoPaquete = new Paquete(emisor, receptor, peso);
         paquetes.add(nuevoPaquete);
+        FileOutputStream fout=new FileOutputStream("Paquetes.txt");
+        try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
+            out.writeObject(nuevoPaquete.toString());
+        }
     }
 
     //Metodo para guardar los usuarios creados en un fichero antes de cerrar el programa.
-    public void guardarPaquete(Paquete paquete) throws FileNotFoundException, IOException, ClassNotFoundException{ //esto tampoco deberia ser static
-        FileOutputStream fout=new FileOutputStream("Paquetes.txt");
-        try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
-            out.writeObject(paquete);
-        }
+
+    public void enviarPaquete(){
+
     }
 }

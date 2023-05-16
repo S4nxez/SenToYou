@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.dao.PaqueteDao;
 import org.example.dao.UserDao;
 import org.example.domain.User;
 import org.example.dao.Admindao;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 public class Service {
     UserDao usrdao= new UserDao();
     Admindao admin = new Admindao();
+    PaqueteDao pqtDao = new PaqueteDao();
     public Service() {}
 
     public boolean guardar(User user, ArrayList<User> comunidad, int i) {
@@ -20,6 +22,10 @@ public class Service {
 
     public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException {
         usrdao.register(name, email, dir, fechaNac, usrname, passwd);
+    }
+    public void EnviarPaquete(User UsuarioEmisor, String nombre_destinatario, float peso){
+        pqtDao.enviarPaquete();
+
     }
     public void cargarUsuarios(String file){
         usrdao.cargarUsuarios(file);

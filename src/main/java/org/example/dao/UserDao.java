@@ -8,14 +8,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Userdao {
+public class UserDao {
     //El arraylist de todos los usuarios
     private ArrayList<User> comunidad;
     
     //El constructor de userdao para inicializarlo en el service
-    public Userdao(){
+    public UserDao(){
         comunidad=new ArrayList<>();
-        cargarUsuarios("Usuarios");
+        cargarUsuarios("Usuarios.txt");
     }
 
     //Metodo que te saca los usuarios desde el archivo de texto y te los mete en la comunidad

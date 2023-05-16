@@ -127,9 +127,11 @@ public class Main {
                 switch (u) {
                     case 1:
                         System.out.println(Constantes.PESO);
-                        float pesoLI = sc.nextFloat();
-                        System.out.println("");
-                        // Paquete paquete= new Paquete(user,);
+                        float peso = sc.nextFloat();
+                        System.out.println(Constantes.RECIPIENT_USRNM);
+                        String recipient = sc.nextLine();
+
+                        serv.EnviarPaquete(user,recipient,peso);
                         break;
                     case 2:
                         break;

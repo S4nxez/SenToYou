@@ -7,32 +7,35 @@ import java.time.format.DateTimeFormatter;
 import org.example.service.Service;
 
 public class Paquete implements Serializable {
-    private String estado, nombre_destinatario, nombre_emisor;
+    private String nombre_destinatario, nombre_emisor;
+    private LocalDate fechaEnvio;
     private int paquete_id;
     private float peso;
+    private static int paquete_id_cont = 0;
     Service serv = new Service();
 
 
-    public Paquete(User UsuarioEmisor, String nombre_destinatario, float peso, String estado, int paquete_id) {
+    public Paquete(User UsuarioEmisor, String nombre_destinatario, float peso) {
         nombre_emisor = UsuarioEmisor.getUsrName();
-        this.paquete_id= paquete_id;
-        this.estado = estado;
+        paquete_id_cont++;
+        paquete_id= paquete_id_cont;
+        fechaEnvio= LocalDate.now();
         this.nombre_destinatario = nombre_destinatario;
         this.peso = peso;
     }
     public Paquete(String linea){
         String[] campos = linea.split(":");
         paquete_id = Integer.parseInt(campos[0]);
-        estado = campos[1];
+        fechaEnvio = LocalDate.parse(campos[1], DateTimeFormatter.ofPattern("yyyy-dd-MM"));
         nombre_destinatario = campos[2];
         peso = Integer.parseInt(campos[3]);
         nombre_destinatario = campos[4];
         nombre_emisor = campos[5];
-        //fecha_envio = LocalDate.parse(campos[4], DateTimeFormatter.ofPattern("yyyy-dd-MM"));
+
     }
     @Override
     public String toString() {
-        return paquete_id+":"+estado+":"+nombre_destinatario+":"+peso+":"+nombre_destinatario+":"+nombre_emisor;//+":"++":";
+        return paquete_id+":"+fechaEnvio+":"+nombre_destinatario+":"+peso+":"+nombre_destinatario+":"+nombre_emisor;
     }
 
     public String getNombre_destinatario() {
@@ -43,12 +46,8 @@ public class Paquete implements Serializable {
         this.nombre_destinatario = nombre_destinatario;
     }
 
-    public String getEstado(){
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public LocalDate fechaEnvio(){
+        return fechaEnvio;
     }
 
     public int getPaquete_id() {
