@@ -72,25 +72,29 @@ public class Main {
 
         }
         if(logeao){
-            System.out.println(Constantes.BIENVENIDALOGIN);
-            System.out.println(Constantes.OPCIONESLOGIN);
-            int u = sc.nextInt();
-            switch (u){
-                case 1:
-                    System.out.println(Constantes.PESO);
-                    float pesoLI = sc.nextFloat();
-                    System.out.println(Constantes);
-                    //Paquete paquete= new Paquete(user,);
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-
+            if (usrname.equalsIgnoreCase("admin")) {
+                
+            } else {
+                System.out.println(Constantes.BIENVENIDALOGIN);
+                System.out.println(Constantes.OPCIONESLOGIN);
+                int u = sc.nextInt();
+                switch (u){
+                    case 1:
+                        System.out.println(Constantes.PESO);
+                        float pesoLI = sc.nextFloat();
+                        System.out.println(Constantes);
+                        //Paquete paquete= new Paquete(user,);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+    
+                }    
             }
         }
         sc.close();
