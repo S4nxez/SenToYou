@@ -45,6 +45,10 @@ public class User implements Serializable{
         return pwd;
     }
 
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+    
     @Override
     public String toString() {
         return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":";

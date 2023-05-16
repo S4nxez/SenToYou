@@ -72,13 +72,14 @@ public class Main {
 
         }
         if(logeao){
-            if (usrname.equalsIgnoreCase("admin")) {
+            if (usrname.toLowerCase().startsWith("admin")) {
                 
             } else {
                 System.out.println(Constantes.BIENVENIDALOGIN);
                 System.out.println(Constantes.OPCIONESLOGIN);
                 int u = sc.nextInt();
                 switch (u){
+                    /*Añadir administradores, Eliminar usuarios que no sean admin, cambiar cualquier contraseña */
                     case 1:
                         System.out.println(Constantes.PESO);
                         float pesoLI = sc.nextFloat();

@@ -56,7 +56,12 @@ public class Userdao {
             //Verificamos que el usuario no esté ya creado
             if (name.equals(comunidad.get(j).getUsrName()) || email.equals(comunidad.get(j).getEmail())){
                 respuesta=false;
-                System.out.println(Constantes.USRNODISP);}
+                System.out.println(Constantes.USRNODISP);
+            }
+            else if (name.startsWith("admin")) {
+                respuesta=false;
+                System.out.println(Constantes.NOESADMIN);
+            }
         }
         if (respuesta) { //Creamos el usuario
             User nuevouser = new User(name, email, dir, fechaNac, usrname, passwd);

@@ -47,8 +47,4 @@ public class Service {
     public ArrayList<User> getComunidad() {
         return usrdao.getComunidad();
     }
-
-//    public void listarUsuarios() {
-//        Admindao.listarUsuarios();
-    //}
 }
