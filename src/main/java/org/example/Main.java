@@ -82,7 +82,7 @@ public class Main {
                     case 1:
                         System.out.println(Constantes.PESO);
                         float pesoLI = sc.nextFloat();
-                        System.out.println(Constantes);
+                        System.out.println("");
                         //Paquete paquete= new Paquete(user,);
                         break;
                     case 2:
