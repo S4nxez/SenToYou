@@ -20,7 +20,9 @@ public class Service {
     public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException {
         usrdao.register(name, email, dir, fechaNac, usrname, passwd);
     }
-
+    public void cargarUsuarios(String file){
+        usrdao.cargarUsuarios(file);
+    }
     public boolean login(String username, String pwd) {
         return usrdao.login(username, pwd);
     }

@@ -15,7 +15,7 @@ public class Userdao {
     //El constructor de userdao para inicializarlo en el service
     public Userdao(){
         comunidad=new ArrayList<>();
-        cargarUsuarios("Usuarios.txt");
+        cargarUsuarios("Usuarios");
     }
 
     //Metodo que te saca los usuarios desde el archivo de texto y te los mete en la comunidad
@@ -64,6 +64,9 @@ public class Userdao {
             guardarTxt(nuevouser);
         }
     }
+    public void cargarUsers() throws FileNotFoundException{
+
+    }
 
     //Método que verifica un inicio de sesión.
     public boolean login(String username, String pwd){
@@ -76,7 +79,7 @@ public class Userdao {
 
     //Metodo para guardar los usuarios creados en un fichero antes de cerrar el programa.
     public void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException{ //esto tampoco deberia ser static
-        FileOutputStream fout=new FileOutputStream("Usuarios.txt");
+        FileOutputStream fout=new FileOutputStream("src//main//Usuarios.txt");
         try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
             out.writeObject(user.toString());
         }

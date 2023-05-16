@@ -1,7 +1,7 @@
 package org.example;
 
+import org.example.common.Constantes;
 import org.example.service.Service;
-import org.example.common.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -15,6 +15,8 @@ public class Main {
         boolean logeao=false;
         String usrname="";
         int o=0;
+
+        serv.cargarUsuarios("src//main//Usuarios.txt");
 
         while(o!=3) {
             // Esto es solo para el user
