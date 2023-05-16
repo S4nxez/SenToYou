@@ -69,8 +69,9 @@ public class Userdao {
             guardarTxt(nuevouser);
         }
     }
-    public void cargarUsers() throws FileNotFoundException{
 
+    public void cargarUsers() throws FileNotFoundException{
+        //saca los usuarios desde el archivo de texto
     }
 
     //Método que verifica un inicio de sesión.
