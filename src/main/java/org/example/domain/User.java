@@ -1,5 +1,7 @@
 package org.example.domain;
 
+import org.example.common.Constantes;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,9 +35,13 @@ public class User implements Serializable{
     }
     public boolean esAmigo(User receptor){
         boolean returneo=false;
-        for (String i : Friends) {
-            if (i.equalsIgnoreCase(receptor.getUsrName()))returneo = true;
-            else returneo = false;
+        try {
+            for (String i : Friends) {
+                if (i.equalsIgnoreCase(receptor.getUsrName())) returneo = true;
+                else returneo = false;
+            }
+        }catch (Exception NullPointerException){
+            System.out.println(Constantes.NOAMIGOS);
         }
         //if (Friends.size()==0)return false;
         return returneo;

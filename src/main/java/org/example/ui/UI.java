@@ -1,8 +1,10 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
+import org.example.domain.User;
 import org.example.service.Service;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -10,8 +12,7 @@ public class UI {
     public UI(){
 
     }
-
-    public void main(){
+    public void main() throws IOException, ClassNotFoundException {
         Service serv = new Service();
         Scanner sc = new Scanner(System.in);
 
@@ -19,7 +20,7 @@ public class UI {
         String usrname = "";
         int o = 0;
 
-        serv.cargarUsuarios("src//main//Usuarios.txt");
+        serv.cargarUsuarios("Usuarios.txt");
 
         while (o != 3) {
             // Esto es solo para el user
@@ -30,7 +31,7 @@ public class UI {
                     System.out.println("---------------------");
                     System.out.println(Constantes.LOGIN);
                     System.out.println("---------------------");
-                    System.out.println(Constantes.USRNAME);
+                    System.out.print(Constantes.USRNAME);
                     sc.nextLine();
                     usrname = sc.nextLine();
                     System.out.print(Constantes.CONTRASENYA);
@@ -132,15 +133,17 @@ public class UI {
                         System.out.println(Constantes.PESO);
                         float peso = sc.nextFloat();
                         System.out.println(Constantes.RECIPIENT_USRNM);
+                        sc.nextLine();
                         String recipient = sc.nextLine();
 
-                        serv.EnviarPaquete(user,recipient,peso);
+                        serv.EnviarPaquete(serv.getUser(usrname),serv.getUser(recipient),peso);
                         break;
                     case 2:
                         break;
                     case 3:
                         break;
                     case 4:
+                        System.out.println();
                         break;
                     case 5:
                         break;

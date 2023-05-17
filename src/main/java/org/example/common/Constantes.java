@@ -30,4 +30,5 @@ public class Constantes {
     public static final String ADMINONORMAL= "Quieres que el usuario sea administrador? (y/n)";
     public static final String USERCREADO= "Listo, se ha creado un usuario nuevo que se llama ";
     public static final String NOAMIGO= "No puedes enviar paquetes a este usuario ya que no está en tu lista de amigos";
+    public static final String NOAMIGOS= "No tienes amigos, debes agregar al usuario antes a tu lista de amigos";
 }

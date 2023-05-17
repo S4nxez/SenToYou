@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class PaqueteDao {
     ArrayList<Paquete> paquetes = new ArrayList<>();
 
-    public void enviarPaquete(User emisor, String receptor, float peso) throws IOException {
-        if (emisor.esAmigo(UserDao.getUser(receptor))) {
-            Paquete nuevoPaquete = new Paquete(emisor, receptor, peso);
+    public void enviarPaquete(User emisor, User receptor, float peso) throws IOException {
+        if (emisor.esAmigo(receptor)) {
+            Paquete nuevoPaquete = new Paquete(emisor, receptor.getUsrName(), peso);
             paquetes.add(nuevoPaquete);
             FileOutputStream fout = new FileOutputStream("Paquetes.txt");
             try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
