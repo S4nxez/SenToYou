@@ -29,4 +29,5 @@ public class Constantes {
     public static final String LOGINADMIN= "1.- Cambiar la contraseña de un usuario\n2.- Listar todos los usuarios\n3.- Crear un nuevo usuario\n4.- Eliminar un usuario";
     public static final String ADMINONORMAL= "Quieres que el usuario sea administrador? (y/n)";
     public static final String USERCREADO= "Listo, se ha creado un usuario nuevo que se llama ";
+    public static final String NOAMIGO= "No puedes enviar paquetes a este usuario ya que no está en tu lista de amigos";
 }
