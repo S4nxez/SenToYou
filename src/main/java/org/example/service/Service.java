@@ -14,6 +14,10 @@ public class Service {
     UserDao usrdao= new UserDao();
     Admindao admin = new Admindao();
     PaqueteDao pqtDao = new PaqueteDao();
+
+    public boolean getStatus(){
+        return pqtDao.getStatus();
+    }
     public Service() {}
 
     public boolean guardar(User user, ArrayList<User> comunidad, int i) {

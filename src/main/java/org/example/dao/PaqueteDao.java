@@ -21,6 +21,7 @@ public class PaqueteDao {
             FileOutputStream fout = new FileOutputStream("Paquetes.txt");
             try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
                 out.writeObject(nuevoPaquete.toString());
+                setStatus(true);
             }
         }
         else System.out.println(Constantes.NOAMIGO);

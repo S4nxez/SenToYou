@@ -126,28 +126,43 @@ public class UI {
 
                 }
             } else {
-                System.out.println(Constantes.OPCIONESLOGIN);
-                int u = sc.nextInt();
-                switch (u) {
-                    case 1:
-                        System.out.println(Constantes.PESO);
-                        float peso = sc.nextFloat();
-                        System.out.println(Constantes.RECIPIENT_USRNM);
+                int u = 0;
+                boolean saltar=false;
+                while (u != 6) {
+                    if (!saltar) {
+                        System.out.println(Constantes.OPCIONESLOGIN);
+                        u = sc.nextInt();
                         sc.nextLine();
-                        String recipient = sc.nextLine();
+                    }
 
-                        serv.EnviarPaquete(serv.getUser(usrname),serv.getUser(recipient),peso);
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        System.out.println();
-                        break;
-                    case 5:
-                        break;
+                    switch (u) {
+                        case 1:
+                            System.out.println(Constantes.PESO);
+                            float peso = sc.nextFloat();//siempre con coma soluciona con trycach
+                            System.out.println(Constantes.RECIPIENT_USRNM);
+                            sc.nextLine();
+                            String recipient = sc.nextLine();
 
+                            serv.EnviarPaquete(serv.getUser(usrname), serv.getUser(recipient), peso);
+                            if (!serv.getStatus()) {
+                                u = 4;
+                                saltar = true;
+                            }
+
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            System.out.print(Constantes.INTRODUCEAMIGO);
+                            String nomAmigo = sc.nextLine();
+
+                            break;
+                        case 5:
+                            break;
+
+                    }
                 }
             }
         }
