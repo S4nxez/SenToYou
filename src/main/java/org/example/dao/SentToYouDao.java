@@ -37,7 +37,6 @@ public class SentToYouDao {
 
 
     public boolean esAmigo(String solicitante, String solicitado) {
-        User usuarioreceptor = getUser(solicitado);
         boolean returneo = false;
         if (getUser(solicitante).getFriends().size() == 0) System.out.println(Constantes.NOAMIGOS);
         else {

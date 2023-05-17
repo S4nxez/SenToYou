@@ -1,7 +1,6 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
-import org.example.domain.User;
 import org.example.service.Service;
 
 import java.io.IOException;
@@ -146,8 +145,9 @@ public class UI {
                             if (serv.getStatus())break; //si que tiene amigos quiere decir esto
 
                         case 2://AÑADIR AMIGOS
-                            System.out.print(Constantes.INTRODUCEAMIGO);
+                            System.out.println(Constantes.AGREGA_AMIGO);
                             String nomAmigo = sc.nextLine();
+                            serv.addFriend(usrname,nomAmigo);
                             break;
                         case 3: //GESTIONAR PERFIL
                             System.out.println(Constantes.EDITARPERFIL);
@@ -155,7 +155,7 @@ public class UI {
                             switch (e){
                                 case 1:
                                     System.out.print(Constantes.EDITARNOMBRE);
-                                    String nombreEdit = sc.nextLine();
+                                    //String nombreEdit = sc.nextLine();
                                     break;
                                 case 2:
                                     break;

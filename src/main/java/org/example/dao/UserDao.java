@@ -1,9 +1,6 @@
 package org.example.dao;
-
 import org.example.common.Constantes;
-import org.example.domain.Paquete;
 import org.example.domain.User;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -69,9 +66,9 @@ public class UserDao extends SentToYouDao{
     }
 
     //private void updateUser(User user){}
-    public boolean addFriend(User amigo){
-        System.out.println(Constantes.AGREGA_AMIGO);
-        final Scanner sc = new Scanner(System.in);
+    public boolean addFriend(String solicitante, String amigo){
+        
+
         return true;
     }
 

@@ -1,13 +1,11 @@
 package org.example.dao;
 
 import org.example.common.Constantes;
-import org.example.domain.Paquete;
 import org.example.domain.User;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Admindao extends SentToYouDao {
@@ -49,7 +47,7 @@ public class Admindao extends SentToYouDao {
      */
     public void setPassword(String administrador) {
         listarUsuarios();
-        final Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println(Constantes.SETPWDNOMBRE);//"Por favor, introduzca el nombre del usuario al que quieras cambiarle la contraseña"
         String victima = sc.nextLine();
         if (victima.startsWith("admin") && victima!=administrador) {
@@ -68,6 +66,7 @@ public class Admindao extends SentToYouDao {
                 }
             }
         }
+        sc.close();
     }
 
     /**
@@ -83,7 +82,7 @@ public class Admindao extends SentToYouDao {
          */
     }
 
-    private boolean cambiaPrecio(float precio) {
+    /*private boolean cambiaPrecio(float precio) {
         return true;
     }
 
@@ -93,5 +92,5 @@ public class Admindao extends SentToYouDao {
 
     private boolean borrarUser(User usuario) {
         return true;
-    }
+    }*/
 }

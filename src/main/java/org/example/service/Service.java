@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.dao.PaqueteDao;
-import org.example.dao.SentToYouDao;
 import org.example.dao.UserDao;
 import org.example.domain.User;
 import org.example.dao.Admindao;
@@ -48,8 +47,8 @@ public class Service {
         return usrdao.getUser(username);
     }
 
-    public boolean addFriend(User amigo) {
-        return usrdao.addFriend(amigo);
+    public boolean addFriend(String solicitante, String amigo) {
+        return usrdao.addFriend(solicitante,amigo);
     }
 
     public boolean removeFriend(User amigo) {

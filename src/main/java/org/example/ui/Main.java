@@ -1,12 +1,6 @@
-package org.example;
-import org.example.ui.UI;
-import org.example.common.Constantes;
-import org.example.service.Service;
+package org.example.ui;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) throws NullPointerException, IOException, ClassNotFoundException {
         UI ui = new UI();
