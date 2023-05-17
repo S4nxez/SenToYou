@@ -13,7 +13,19 @@ public class Admindao {
     public Admindao() {}
     UserDao usr = new UserDao();
 
-    //Crear un nuevo usuario administrador en el sistema
+    /**
+     * Crea un usuario administrador nuevo en el sistema, comprueba que no haya ningun administrador con el mismo
+     * nombre
+     * @param name El nombre normal
+     * @param email Su email (no es muy necesario, al ser administrador no se necesita)
+     * @param direccion No se necesita tampoco
+     * @param fecha_nac Podría necesitarse si quieres guardar registro de los empleados
+     * @param username Parámetro que recibe como nombre de usuario, se le pondrá admin delante
+     * @param pwd Contraseña
+     * @throws FileNotFoundException por si no encuentra el archivo de Usuarios
+     * @throws ClassNotFoundException Por si no encuentra la clase Usuario
+     * @throws IOException
+     */
     public void crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
             String pwd) throws FileNotFoundException, ClassNotFoundException, IOException {
         boolean respuesta = true;
@@ -58,7 +70,9 @@ public class Admindao {
         }
     }
 
-    //Decir todos los usuarios que existen en comunidad
+    /**
+     * Decir todos los usuarios que existen en comunidad.
+     */
     public void listarUsuarios() {
         usr.getComunidad().forEach(User -> System.out.println(User));
         /*

@@ -15,6 +15,12 @@ public class Paquete implements Serializable {
     Service serv = new Service();
 
 
+    /**
+     * Constructor del paquete normal
+     * @param UsuarioEmisor El usuario que envía el paquete
+     * @param nombre_destinatario El usuario que recibe el paquete
+     * @param peso El peso del paquete
+     */
     public Paquete(User UsuarioEmisor, String nombre_destinatario, float peso) {
         nombre_emisor = UsuarioEmisor.getUsrName();
         paquete_id_cont++;
@@ -23,6 +29,7 @@ public class Paquete implements Serializable {
         this.nombre_destinatario = nombre_destinatario;
         this.peso = peso;
     }
+
     public Paquete(String linea){
         String[] campos = linea.split(":");
         paquete_id = Integer.parseInt(campos[0]);
@@ -33,10 +40,6 @@ public class Paquete implements Serializable {
         nombre_emisor = campos[5];
 
     }
-    @Override
-    public String toString() {
-        return paquete_id+":"+fechaEnvio+":"+nombre_destinatario+":"+peso+":"+nombre_destinatario+":"+nombre_emisor;
-    }
 
     public String getNombre_destinatario() {
         return nombre_destinatario;
@@ -46,7 +49,7 @@ public class Paquete implements Serializable {
         this.nombre_destinatario = nombre_destinatario;
     }
 
-    public LocalDate fechaEnvio(){
+    public LocalDate getFechaEnvio(){
         return fechaEnvio;
     }
 
@@ -64,5 +67,13 @@ public class Paquete implements Serializable {
 
     public void setPeso(float peso) {
         this.peso = peso;
+    }
+
+    /**
+     * @return Devuelve los datos de cada paquete, los queremos para almacenarlo en un fichero de texto.
+     */
+    @Override
+    public String toString() {
+        return paquete_id+":"+fechaEnvio+":"+nombre_destinatario+":"+peso+":"+nombre_destinatario+":"+nombre_emisor;
     }
 }

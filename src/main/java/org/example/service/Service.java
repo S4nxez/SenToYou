@@ -24,9 +24,9 @@ public class Service {
         usrdao.register(name, email, dir, fechaNac, usrname, passwd);
     }
     public void EnviarPaquete(User UsuarioEmisor, String nombre_destinatario, float peso){
-        pqtDao.enviarPaquete();
-
+        pqtDao.enviarPaquete(UsuarioEmisor,nombre_destinatario,peso);
     }
+
     public void cargarUsuarios(String file){
         usrdao.cargarUsuarios(file);
     }
