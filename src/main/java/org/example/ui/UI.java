@@ -18,7 +18,7 @@ public class UI {
         int o = 0;
 
         serv.cargarUsuarios("Usuarios.txt");
-        serv.cargarPaquetes("Paquetes");
+        serv.cargarPaquetes("Paquetes");//hay que meter el metodo en service
 
         while (o != 3) {
             // Esto es solo para el user

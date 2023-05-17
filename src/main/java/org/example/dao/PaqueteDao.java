@@ -10,8 +10,8 @@ import java.io.ObjectOutputStream;
 public class PaqueteDao extends SentToYouDao{
     private boolean status=false;
 
-    public cargarPaquetes(){
-        
+    public cargarPaquetes(){//tenemos que hacer que el metodo sea como el cargarusuarios del userdao pero que lo haga en un binario y no en un txt
+
     }
 
     public void enviarPaquete(String nombreemisor, String nombrereceptor, float peso) throws IOException {

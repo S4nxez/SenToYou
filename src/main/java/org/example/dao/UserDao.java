@@ -68,7 +68,8 @@ public class UserDao extends SentToYouDao{
     //private void updateUser(User user){}
     public boolean addFriend(String solicitante, String amigo){
         for (User getUser(solicitante) : comunidad) {
-            if getUser(solicitante).getFriends()
+            if getUser(solicitante).getFriends()//hazlo tu, si tiene un amigo ya con el nombre del que quiere agregar, que no. Else añades el username al 
+                                                //arraylist de string del getuser(solicitante)
         } 
 
         return true;
