@@ -125,13 +125,14 @@ public class UI {
                 }
             } else {
                 int u = 0;
-                boolean saltar=false;
+
+
                 while (u != 6) {
-                    if (!saltar) {
+
                         System.out.println(Constantes.OPCIONESLOGIN);
                         u = sc.nextInt();
                         sc.nextLine();
-                    }
+
 
                     switch (u) {
                         case 1:
@@ -141,20 +142,17 @@ public class UI {
                             sc.nextLine();
                             String recipient = sc.nextLine();
 
-                            serv.EnviarPaquete(serv.getUser(usrname), serv.getUser(recipient), peso);
-                            if (!serv.getStatus()) {
-                                u = 4;
-                                saltar = true;
-                            }
+                            serv.EnviarPaquete(usrname, recipient, peso);
+                            if (serv.getStatus())break; //si que tiene amigos quiere decir esto
 
-                            break;
                         case 2:
+                            System.out.print(Constantes.INTRODUCEAMIGO);
+                            String nomAmigo = sc.nextLine();
                             break;
                         case 3:
                             break;
                         case 4:
-                            System.out.print(Constantes.INTRODUCEAMIGO);
-                            String nomAmigo = sc.nextLine();
+
 
                             break;
                         case 5:

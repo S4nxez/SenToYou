@@ -1,6 +1,7 @@
 package org.example.domain;
 
 import org.example.common.Constantes;
+import org.example.service.Service;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ public class User implements Serializable{
     private String name, email, direccion, username, pwd;
     LocalDate fecha_nac = LocalDate.now();
     ArrayList<String> Friends;
+    Service srv = new Service();
     public User(){}//Construsctor vacio para llamarlo desde service
     public User(String name, String email, String direccion, LocalDate fecha_nac, String username, String pwd) {
         this.name = name;
@@ -57,6 +59,6 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd;
+        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+srv.listarAmigos(username);
     }
 }

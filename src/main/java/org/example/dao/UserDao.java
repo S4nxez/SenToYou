@@ -88,19 +88,25 @@ public class UserDao {
     //private void updateUser(User user){}
 
     public boolean addFriend(User amigo){
+        System.out.println(Constantes.AGREGA_AMIGO);
+        final Scanner sc = new Scanner(System.in);
         return true;
     }
-    
+
+    public String listarAmigos(String username) {
+        return getUser(username).getFriends().forEach(User -> System.out.println(User+","));
+    }
+
     public boolean removeFriend(User amigo){
         return true;
     }
 
-    public boolean esAmigo(String emisor, String receptor){
-        User usuarioreceptor = getUser(receptor);
+    public boolean esAmigo(String solicitante, String solicitado){
+        User usuarioreceptor = getUser(solicitado);
         boolean returneo=false;
         try {
-            for (String i : getUser(emisor).getFriends())
-                if (i.equalsIgnoreCase(receptor)) returneo=!returneo;
+            for (String i : getUser(solicitante).getFriends())
+                if (i.equalsIgnoreCase(solicitado)) returneo=!returneo;
         }catch (Exception NullPointerException){
             System.out.println(Constantes.NOAMIGOS);
         }

@@ -27,7 +27,7 @@ public class Service {
     public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException {
         usrdao.register(name, email, dir, fechaNac, usrname, passwd);
     }
-    public void EnviarPaquete(User UsuarioEmisor, User destinatario, float peso) throws IOException {
+    public void EnviarPaquete(String UsuarioEmisor, String destinatario, float peso) throws IOException {
         pqtDao.enviarPaquete(UsuarioEmisor,destinatario,peso);
     }
 
@@ -72,5 +72,7 @@ public class Service {
         admin.listarUsuarios();
     }
 
-
+    public void listarAmigos(String username) {
+        usrdao.listarAmigos(username);
+    }
 }
