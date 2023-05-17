@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class UserDao extends SentToYouDao{
 
-    //Metodo que te saca los usuarios desde el archivo de texto y te los mete en la comunidad
     public void cargarUsuarios(String file){
         Scanner scanner = null;
         comunidad = new ArrayList<>();
@@ -21,7 +20,7 @@ public class UserDao extends SentToYouDao{
             User usuario = new User(scanner.nextLine());
             comunidad.add(usuario);
         }
-    }
+    }//ARCHIVOS NO BINARIOS, READ
 
 
     //Método que recibe un usuario y comprueba si está en el sistema.
@@ -45,6 +44,7 @@ public class UserDao extends SentToYouDao{
             guardarTxt(nuevouser);
         }
     }
+
     public void cargarUsers() throws FileNotFoundException{
     }
 
@@ -58,7 +58,7 @@ public class UserDao extends SentToYouDao{
     }
 
     //Metodo para guardar los usuarios creados en un fichero antes de cerrar el programa.
-    public void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException{ //esto tampoco deberia ser static
+    public void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException{
         FileOutputStream fout=new FileOutputStream("Usuarios.txt",true);
         try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
             out.writeObject(user.toString());
@@ -67,7 +67,9 @@ public class UserDao extends SentToYouDao{
 
     //private void updateUser(User user){}
     public boolean addFriend(String solicitante, String amigo){
-        
+        for (User getUser(solicitante) : comunidad) {
+            if getUser(solicitante).getFriends()
+        } 
 
         return true;
     }

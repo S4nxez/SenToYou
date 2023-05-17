@@ -18,6 +18,7 @@ public class UI {
         int o = 0;
 
         serv.cargarUsuarios("Usuarios.txt");
+        serv.cargarPaquetes("Paquetes");
 
         while (o != 3) {
             // Esto es solo para el user

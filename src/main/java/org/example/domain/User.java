@@ -22,8 +22,12 @@ public class User implements Serializable{
         this.pwd = pwd;
         Friends = new ArrayList<>();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS usando username como clave primaria
     }
+
+    //cargando el usuario desde el archivo de texto
     public User(String linea){
+        //creamos array de string en el que se van a almacenar las variables
         String[] campos = linea.split(":");
+        //Igualamos el valor de la seccion a la variable local
         name = campos[0];
         email = campos[1];
         direccion = campos[2];

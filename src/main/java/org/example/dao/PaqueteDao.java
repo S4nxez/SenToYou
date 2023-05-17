@@ -9,6 +9,11 @@ import java.io.ObjectOutputStream;
 
 public class PaqueteDao extends SentToYouDao{
     private boolean status=false;
+
+    public cargarPaquetes(){
+        
+    }
+
     public void enviarPaquete(String nombreemisor, String nombrereceptor, float peso) throws IOException {
         if (esAmigo(nombreemisor, nombrereceptor)) {
             Paquete nuevoPaquete = new Paquete(nombreemisor, nombrereceptor, peso);
@@ -17,7 +22,7 @@ public class PaqueteDao extends SentToYouDao{
             try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
                 out.writeObject(nuevoPaquete.toString());
                 setStatus(true);
-            }//ARCHIVOS BINARIOS
+            }//ARCHIVOS BINARIOS, WRITE
         }
         else {
             System.out.println(Constantes.NOAMIGO);
