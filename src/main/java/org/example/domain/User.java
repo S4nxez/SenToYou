@@ -1,8 +1,6 @@
 package org.example.domain;
 
-import org.example.common.Constantes;
 import org.example.dao.UserDao;
-import org.example.service.Service;
 
 import java.io.Serializable;
 import java.time.LocalDate;
