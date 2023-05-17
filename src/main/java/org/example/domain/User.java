@@ -11,6 +11,7 @@ public class User implements Serializable{
     private String name, email, direccion, username, pwd;
     LocalDate fecha_nac = LocalDate.now();
     ArrayList<String> Friends;
+    public User(){}//Construsctor vacio para llamarlo desde service
     public User(String name, String email, String direccion, LocalDate fecha_nac, String username, String pwd) {
         this.name = name;
         this.email = email;
@@ -20,8 +21,6 @@ public class User implements Serializable{
         this.pwd = pwd;
         Friends = new ArrayList<>();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS usando username como clave primaria
     }
-
-    public User(){}
 
     public User(String linea){
         String[] campos = linea.split(":");
@@ -33,18 +32,9 @@ public class User implements Serializable{
         username = campos[4];
         pwd = campos[5];
     }
-    public boolean esAmigo(User receptor){
-        boolean returneo=false;
-        try {
-            for (String i : Friends) {
-                if (i.equalsIgnoreCase(receptor.getUsrName())) returneo = true;
-                else returneo = false;
-            }
-        }catch (Exception NullPointerException){
-            System.out.println(Constantes.NOAMIGOS);
-        }
-        //if (Friends.size()==0)return false;
-        return returneo;
+
+    public ArrayList<String> getFriends() {
+        return Friends;
     }
 
     public String getUsrName(){
@@ -62,7 +52,9 @@ public class User implements Serializable{
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-    
+
+
+
     @Override
     public String toString() {
         return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd;

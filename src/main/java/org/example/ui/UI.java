@@ -9,9 +9,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UI {
-    public UI(){
-
-    }
+    public UI(){}
     public void main() throws IOException, ClassNotFoundException {
         Service serv = new Service();
         Scanner sc = new Scanner(System.in);

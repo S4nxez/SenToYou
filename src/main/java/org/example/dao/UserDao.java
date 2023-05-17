@@ -95,6 +95,19 @@ public class UserDao {
         return true;
     }
 
+    public boolean esAmigo(String emisor, String receptor){
+        User usuarioreceptor = getUser(receptor);
+        boolean returneo=false;
+        try {
+            for (String i : getUser(emisor).getFriends())
+                if (i.equalsIgnoreCase(receptor)) returneo=!returneo;
+        }catch (Exception NullPointerException){
+            System.out.println(Constantes.NOAMIGOS);
+        }
+        //if (Friends.size()==0)return false;
+        return returneo;
+    }
+
     public ArrayList<User> getComunidad() {
         return comunidad;
     }
