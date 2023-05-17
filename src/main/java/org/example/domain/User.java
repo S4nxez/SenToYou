@@ -1,6 +1,7 @@
 package org.example.domain;
 
 import org.example.common.Constantes;
+import org.example.dao.UserDao;
 import org.example.service.Service;
 
 import java.io.Serializable;
@@ -12,8 +13,8 @@ public class User implements Serializable{
     private String name, email, direccion, username, pwd;
     LocalDate fecha_nac = LocalDate.now();
     ArrayList<String> Friends;
-    Service srv = new Service();
-    public User(){}//Construsctor vacio para llamarlo desde service
+
+    UserDao usrdao = new UserDao();
     public User(String name, String email, String direccion, LocalDate fecha_nac, String username, String pwd) {
         this.name = name;
         this.email = email;
@@ -57,6 +58,6 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+srv.listarAmigos(username);
+        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+usrdao.listarAmigos(username);
     }
 }

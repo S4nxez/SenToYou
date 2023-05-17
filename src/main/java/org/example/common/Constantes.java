@@ -3,7 +3,7 @@ package org.example.common;
 public class Constantes {
     public static final String BIENVENIDA = "¡Bienvenido!, selecciona una opción:\n1.Iniciar sesión\n2.Registrarse\n3.Guardar y salir";
     public static final String BIENVENIDALOGIN= "Has iniciado sesión, selecciona una opción:";
-    public static final String OPCIONESLOGIN= "1.Enviar paquete\n2.Consultar estado\n3.Gestionar perfil\n4.Añadir amigo\n5.Consultar tarifas\n6.Guardar Users creado";
+    public static final String OPCIONESLOGIN= "1.Enviar paquete\n2.Añadir amigo\n3.Gestionar perfil\n4.Consultar estado\n5.Consultar tarifas\n6.Guardar Users creado";
     public static final String LOGIN= "Iniciar Sesión";
     public static final String USRNAME="Nombre de usuario: ";
     public static final String CONTRASENYA="Contraseña: ";
@@ -33,5 +33,6 @@ public class Constantes {
     public static final String NOAMIGOS= "No tienes amigos, debes agregar al usuario antes a tu lista de amigos";
     public static final String INTRODUCEAMIGO= "Introduce el nombre de usuario de tu amigo: ";
     public static final String AGREGA_AMIGO= "Introduce el usuario de tu nuevo amigo: ";
-
+    public static final String EDITARPERFIL= "1.Editar nombre\n2.Cambiar contraseña\n3.Cambiar nombre de usuario";
+    public static final String EDITARNOMBRE= "Introduzca su nuevo nombre de usuario: ";
 }

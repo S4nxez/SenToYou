@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.dao.PaqueteDao;
+import org.example.dao.SentToYouDao;
 import org.example.dao.UserDao;
 import org.example.domain.User;
 import org.example.dao.Admindao;
@@ -12,8 +13,8 @@ import java.util.ArrayList;
 
 public class Service {
     UserDao usrdao= new UserDao();
-    Admindao admin = new Admindao(usrdao);
-    PaqueteDao pqtDao = new PaqueteDao(usrdao);
+    Admindao admin = new Admindao();
+    PaqueteDao pqtDao = new PaqueteDao();
 
     public boolean getStatus(){
         return pqtDao.getStatus();

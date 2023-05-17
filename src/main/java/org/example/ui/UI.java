@@ -135,7 +135,7 @@ public class UI {
 
 
                     switch (u) {
-                        case 1:
+                        case 1://ENVIAR PAQUETE
                             System.out.println(Constantes.PESO);
                             float peso = sc.nextFloat();//siempre con coma soluciona con trycach
                             System.out.println(Constantes.RECIPIENT_USRNM);
@@ -145,11 +145,23 @@ public class UI {
                             serv.EnviarPaquete(usrname, recipient, peso);
                             if (serv.getStatus())break; //si que tiene amigos quiere decir esto
 
-                        case 2:
+                        case 2://AÑADIR AMIGOS
                             System.out.print(Constantes.INTRODUCEAMIGO);
                             String nomAmigo = sc.nextLine();
                             break;
-                        case 3:
+                        case 3: //GESTIONAR PERFIL
+                            System.out.println(Constantes.EDITARPERFIL);
+                            int e = sc.nextInt();
+                            switch (e){
+                                case 1:
+                                    System.out.print(Constantes.EDITARNOMBRE);
+                                    String nombreEdit = sc.nextLine();
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                            }
                             break;
                         case 4:
 

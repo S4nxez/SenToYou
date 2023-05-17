@@ -1,4 +1,10 @@
 package org.example.dao;
 
-public class TrabajoDao {
+import org.example.domain.Paquete;
+import org.example.domain.User;
+
+import java.util.ArrayList;
+
+public class TrabajoDao extends SentToYouDao{
+
 }

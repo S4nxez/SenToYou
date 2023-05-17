@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.common.Constantes;
+import org.example.domain.Paquete;
 import org.example.domain.User;
 
 import java.io.*;
@@ -8,15 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserDao {
-    //El arraylist de todos los usuarios
-    private ArrayList<User> comunidad;
-    
-    //El constructor de userdao para inicializarlo en el service
-    public UserDao(){
-        comunidad=new ArrayList<>();
-        cargarUsuarios("Usuarios.txt");
-    }
+public class UserDao extends SentToYouDao{
 
     //Metodo que te saca los usuarios desde el archivo de texto y te los mete en la comunidad
     public void cargarUsuarios(String file){
@@ -33,16 +26,7 @@ public class UserDao {
         }
     }
 
-    //Método que te devuelve un usuario a partir de su nombre
-    public User getUser(String username){
-        User usReturn = new User();
-        for (int i = 0; i < comunidad.size(); i++) {
-            if (comunidad.get(i).getUsrName().equals(username))
-                usReturn=comunidad.get(i);
-        }
-        return usReturn;
-    }
-    
+
     //Método que recibe un usuario y comprueba si está en el sistema.
     public boolean guardar(User user, ArrayList<User> comunidad, int i){
         if(user.getUsrName().equals(comunidad.get(i).getUsrName())) return false;
@@ -85,36 +69,16 @@ public class UserDao {
     }
 
     //private void updateUser(User user){}
-
     public boolean addFriend(User amigo){
         System.out.println(Constantes.AGREGA_AMIGO);
         final Scanner sc = new Scanner(System.in);
         return true;
     }
 
-    public String listarAmigos(String username) {
-        String respuesta ="";
-        for (int i = 0; i < getUser(username).getFriends().size(); i++) {
-            respuesta=respuesta+getUser(username).getFriends().get(i)+",";
-        }
-        return respuesta;
-    }
+
 
     public boolean removeFriend(User amigo){
         return true;
-    }
-
-    public boolean esAmigo(String solicitante, String solicitado){
-        User usuarioreceptor = getUser(solicitado);
-        boolean returneo=false;
-        try {
-            for (String i : getUser(solicitante).getFriends())
-                if (i.equalsIgnoreCase(solicitado)) returneo=!returneo;
-        }catch (Exception NullPointerException){
-            System.out.println(Constantes.NOAMIGOS);
-        }
-        //if (Friends.size()==0)return false;
-        return returneo;
     }
 
     public ArrayList<User> getComunidad() {

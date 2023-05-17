@@ -1,19 +1,17 @@
 package org.example.dao;
 
 import org.example.common.Constantes;
+import org.example.domain.Paquete;
 import org.example.domain.User;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Admindao {
+public class Admindao extends SentToYouDao {
     UserDao usr;
-
-    public Admindao(UserDao user) {
-        this.usr=user;
-    }
 
     /**
      * Crea un usuario administrador nuevo en el sistema, comprueba que no haya ningun administrador con el mismo
