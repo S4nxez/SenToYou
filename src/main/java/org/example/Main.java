@@ -8,8 +8,14 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException, ClassNotFoundException{
+    public static void main(String[] args){
         UI ui = new UI();
-        ui.main();
+        try {
+            ui.main();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

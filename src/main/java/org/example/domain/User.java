@@ -23,7 +23,6 @@ public class User implements Serializable{
         this.pwd = pwd;
         Friends = new ArrayList<>();// USAR FRIENNDS AT (AMIGOS QUE YA EXISTAN)   MEJOR ARRAY DE STRINGS usando username como clave primaria
     }
-
     public User(String linea){
         String[] campos = linea.split(":");
         name = campos[0];
@@ -34,7 +33,6 @@ public class User implements Serializable{
         username = campos[4];
         pwd = campos[5];
     }
-
     public ArrayList<String> getFriends() {
         return Friends;
     }
@@ -59,6 +57,6 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+srv.listarAmigos(username);
+        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+srv.listarAmigos(username);
     }
 }

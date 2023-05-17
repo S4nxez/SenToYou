@@ -65,7 +65,6 @@ public class UserDao {
         }
     }
     public void cargarUsers() throws FileNotFoundException{
-
     }
 
     //Método que verifica un inicio de sesión.
@@ -79,7 +78,7 @@ public class UserDao {
 
     //Metodo para guardar los usuarios creados en un fichero antes de cerrar el programa.
     public void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException{ //esto tampoco deberia ser static
-        FileOutputStream fout=new FileOutputStream("src//main//Usuarios.txt");
+        FileOutputStream fout=new FileOutputStream("Usuarios.txt",true);
         try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
             out.writeObject(user.toString());
         }
@@ -94,7 +93,11 @@ public class UserDao {
     }
 
     public String listarAmigos(String username) {
-        return getUser(username).getFriends().forEach(User -> System.out.println(User+","));
+        String respuesta ="";
+        for (int i = 0; i < getUser(username).getFriends().size(); i++) {
+            respuesta=respuesta+getUser(username).getFriends().get(i)+",";
+        }
+        return respuesta;
     }
 
     public boolean removeFriend(User amigo){
@@ -117,7 +120,6 @@ public class UserDao {
     public ArrayList<User> getComunidad() {
         return comunidad;
     }
-
 }
 
 

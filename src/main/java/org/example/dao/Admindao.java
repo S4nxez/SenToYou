@@ -9,9 +9,11 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Admindao {
+    UserDao usr;
 
-    public Admindao() {}
-    UserDao usr = new UserDao();
+    public Admindao(UserDao user) {
+        this.usr=user;
+    }
 
     /**
      * Crea un usuario administrador nuevo en el sistema, comprueba que no haya ningun administrador con el mismo

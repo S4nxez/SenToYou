@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class Service {
     UserDao usrdao= new UserDao();
-    Admindao admin = new Admindao();
-    PaqueteDao pqtDao = new PaqueteDao();
+    Admindao admin = new Admindao(usrdao);
+    PaqueteDao pqtDao = new PaqueteDao(usrdao);
 
     public boolean getStatus(){
         return pqtDao.getStatus();
@@ -72,7 +72,8 @@ public class Service {
         admin.listarUsuarios();
     }
 
-    public void listarAmigos(String username) {
-        usrdao.listarAmigos(username);
+
+    public String listarAmigos(String username) {
+        return usrdao.listarAmigos(username);
     }
 }

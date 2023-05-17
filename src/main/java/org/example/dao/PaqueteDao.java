@@ -14,8 +14,11 @@ import java.util.ArrayList;
 public class PaqueteDao {
     ArrayList<Paquete> paquetes = new ArrayList<>();
     private boolean status=false;
-    public PaqueteDao(){} //constructor vacio para llamarlo desde service
-    UserDao usr = new UserDao();
+    UserDao usr;
+    public PaqueteDao(UserDao userdao){
+        this.usr=userdao;
+    } //constructor vacio para llamarlo desde service
+
 
     public void enviarPaquete(String nombreemisor, String nombrereceptor, float peso) throws IOException {
         if (usr.esAmigo(nombreemisor, nombrereceptor)) {
