@@ -1,6 +1,7 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
+import org.example.common.NuestraExcepcion;
 import org.example.service.Service;
 
 import java.io.IOException;
@@ -18,11 +19,12 @@ public class UI {
         int o = 0;
 
         serv.cargarUsuarios("Usuarios.txt");
-        serv.cargarPaquetes("Paquetes");//hay que meter el metodo en service
+        //serv.cargarPaquetes("Paquetes");//hay que meter el metodo en service
 
         while (o != 3) {
             // Esto es solo para el user
             System.out.println(Constantes.BIENVENIDA);
+            System.out.println("Consulta : "+serv.consulta("nacho"));
             o = sc.nextInt();
             switch (o) {
                 case 1:
@@ -53,25 +55,35 @@ public class UI {
                     System.out.print(Constantes.DIRECCION);
                     String direccion = sc.nextLine();
                     System.out.println(Constantes.FECHA);
-                    System.out.print("             " + Constantes.ANYO + ": ");
-                    int anyo = sc.nextInt();
-                    System.out.print("             " + Constantes.MES + ": ");
-                    int mes = sc.nextInt();// mes--; hay clases para las fechas que usan enero para el 0 la que he
-                    // puesto creo que no.
-                    System.out.print("             " + Constantes.DIA + ": ");
-                    int dia = sc.nextInt();
-                    LocalDate fechaNac = LocalDate.of(anyo, mes, dia);
-                    sc.nextLine();
+                    LocalDate fechaNac= null;
+                    try {
+                        System.out.print("             " + Constantes.ANYO + ": ");
+                        int anyo = sc.nextInt();
+                        System.out.print("             " + Constantes.MES + ": ");
+                        int mes = sc.nextInt();// mes--; hay clases para las fechas que usan enero para el 0 la que he
+                        // puesto creo que no.
+                        System.out.print("             " + Constantes.DIA + ": ");
+                        int dia = sc.nextInt();
+                        fechaNac = LocalDate.of(anyo, mes, dia);
+                        sc.nextLine();
+                    } catch (Exception e) {
+                        System.out.println("No estás introduciendo la Fecha correctamente.");
+                    }
                     System.out.print(Constantes.USRNAME);
                     usrname = sc.nextLine();
                     System.out.print(Constantes.CONTRASENYA);
                     String pwd = sc.nextLine();
-                    serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                    if (fechaNac!= null){
+                        try {
+                            serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                        } catch (NuestraExcepcion e) {
+                            System.out.println("El usuario ya existe. " + Constantes.USRNODISP);
+                        }
+                    }
                     break;
                 case 3:
                     break;
             }
-
         }
         if (logeao) {
             System.out.println(Constantes.BIENVENIDALOGIN);
@@ -113,7 +125,11 @@ public class UI {
                             serv.crearAdmin(name, email, direccion, fechaNac, usrname, pwd);
                             System.out.println(Constantes.USERCREADO+"admin"+usrname);
                         } else {
-                            serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                            try {
+                                serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                            } catch (NuestraExcepcion e) {
+                                System.out.println("El usuario ya existe.");
+                            }
                             System.out.println(Constantes.USERCREADO+usrname);
                         }
                         break;
@@ -148,7 +164,7 @@ public class UI {
                         case 2://AÑADIR AMIGOS
                             System.out.println(Constantes.AGREGA_AMIGO);
                             String nomAmigo = sc.nextLine();
-                            serv.addFriend(usrname,nomAmigo);
+//                            serv.addFriend(usrname,nomAmigo);
                             break;
                         case 3: //GESTIONAR PERFIL
                             System.out.println(Constantes.EDITARPERFIL);

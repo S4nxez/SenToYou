@@ -3,12 +3,14 @@ package org.example.service;
 import org.example.dao.PaqueteDao;
 import org.example.dao.UserDao;
 import org.example.domain.User;
+import org.example.common.NuestraExcepcion;
 import org.example.dao.Admindao;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Service {
     UserDao usrdao= new UserDao();
@@ -24,7 +26,7 @@ public class Service {
         return usrdao.guardar(user, comunidad, i);
     }
 
-    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException {
+    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException, NuestraExcepcion {
         usrdao.register(name, email, dir, fechaNac, usrname, passwd);
     }
     public void EnviarPaquete(String UsuarioEmisor, String destinatario, float peso) throws IOException {
@@ -47,15 +49,15 @@ public class Service {
         return usrdao.getUser(username);
     }
 
-    public boolean addFriend(String solicitante, String amigo) {
-        return usrdao.addFriend(solicitante,amigo);
-    }
+//    public boolean addFriend(String solicitante, String amigo) {
+//        return usrdao.addFriend(solicitante,amigo);
+//    }
 
     public boolean removeFriend(User amigo) {
         return usrdao.removeFriend(amigo);
     }
 
-    public ArrayList<User> getComunidad() {
+    public List<User> getComunidad() {
         return usrdao.getComunidad();
     }
 
@@ -76,4 +78,10 @@ public class Service {
     public String listarAmigos(String username) {
         return usrdao.listarAmigos(username);
     }
+
+    public List<User> consulta(String usuario) {
+        return usrdao.consulta(usuario);
+    }
+
+    
 }
