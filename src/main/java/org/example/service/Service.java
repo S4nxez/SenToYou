@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Service {
     UserDao usrdao = new UserDao();
@@ -69,12 +70,12 @@ public class Service {
         return usrdao.removeFriend(amigo);
     }
 
-    public ArrayList<User> getComunidad() {
+    public List<User> getComunidad() {
         return usrdao.getComunidad();
     }
 
     public void crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
-                           String pwd) throws FileNotFoundException, ClassNotFoundException, IOException {
+            String pwd) throws FileNotFoundException, ClassNotFoundException, IOException {
         admin.crearAdmin(name, email, direccion, fecha_nac, username, pwd);
     }
 
@@ -90,4 +91,10 @@ public class Service {
     public String listarAmigos(String username) {
         return usrdao.listarAmigos(username);
     }
+
+    public List<User> consulta(String usuario) {
+        return usrdao.consulta(usuario);
+    }
+
+
 }

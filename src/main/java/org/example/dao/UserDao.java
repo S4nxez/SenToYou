@@ -1,24 +1,28 @@
 package org.example.dao;
+
+import org.example.common.ComprobacionNuestraExcepcion;
 import org.example.common.Constantes;
+import org.example.common.NuestraExcepcion;
 import org.example.domain.User;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class UserDao extends SentToYouDao{
+public class UserDao extends SentToYouDao {
 
-    public void cargarUsuarios(String file){
+    public void cargarUsuarios(String file) {
         Scanner scanner = null;
         comunidad = new ArrayList<>();
         try {
             scanner = new Scanner(new File(file));
+            while (scanner.hasNextLine()) {
+                User usuario = new User(scanner.nextLine());
+                comunidad.add(usuario);
+            }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        while (scanner.hasNextLine()){
-            User usuario = new User(scanner.nextLine());
-            comunidad.add(usuario);
+            System.out.println("Archivo no encontrado");
         }
     }//ARCHIVOS NO BINARIOS, READ
     public void escribirUsuarios(String file){
@@ -57,23 +61,30 @@ public class UserDao extends SentToYouDao{
         }
     }
 
-    public void cargarUsers() throws FileNotFoundException{
+    public void cargarUsers() throws FileNotFoundException {
     }
 
-    //Método que verifica un inicio de sesión.
-    public boolean login(String username, String pwd){
+    // Método que verifica un inicio de sesión.
+    public boolean login(String username, String pwd) {
         User usuario = getUser(username);
-        if (usuario.getUsrName().equals(username) && usuario.getPwd().equals(pwd)){
+        if (usuario.getUsrName().equals(username) && usuario.getPwd().equals(pwd)) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
-    //Metodo para guardar los usuarios creados en un fichero antes de cerrar el programa.
-    public void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException{
-        FileOutputStream fout=new FileOutputStream("Usuarios.txt",true);
-        try (ObjectOutputStream out = new ObjectOutputStream(fout)) {
+    // Metodo para guardar los usuarios creados en un fichero antes de cerrar el
+    // programa.
+    public void guardarTxt(User user) throws FileNotFoundException, IOException {
+        try {
+            FileOutputStream fout = new FileOutputStream("UsuariosBinario.txt", true);
+            ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(user.toString());
+            out.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no encontrado, creando uno nuevo");
+            File file = new File("UsuariosBinario.txt");
+            guardarTxt(user);
         }
     }
 
@@ -82,11 +93,11 @@ public class UserDao extends SentToYouDao{
 
 
 
-    public boolean removeFriend(User amigo){
+    public boolean removeFriend(User amigo) {
         return true;
     }
 
-    public ArrayList<User> getComunidad() {
+    public List<User> getComunidad() {
         return comunidad;
     }
 }

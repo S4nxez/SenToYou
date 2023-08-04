@@ -8,11 +8,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SentToYouDao {
-    protected ArrayList<Paquete> paquetes;
+    protected List<Paquete> paquetes;
     //El arraylist de todos los usuarios
-    protected ArrayList<User> comunidad;
+    protected List<User> comunidad;
 
     public SentToYouDao() {
         paquetes= new ArrayList<>();
@@ -71,6 +73,14 @@ public class SentToYouDao {
             }
         }
         return returneo;
+    }
+
+
+    //Por cada usuario que tenga el mismo nombre, se devuelve en la consulta
+    public List<User> consulta(String usuario) {
+        return comunidad.stream()
+        .filter(User -> User.getUsrName().equals(usuario))
+        .collect(Collectors.toList());
     }
 }
 
