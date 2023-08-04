@@ -24,7 +24,7 @@ public class Admindao extends SentToYouDao {
      * @throws ClassNotFoundException Por si no encuentra la clase Usuario
      * @throws IOException
      */
-    public void crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
+    public boolean crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
             String pwd) throws FileNotFoundException, ClassNotFoundException, IOException {
         boolean respuesta = true;
         for (int j = 0; j < usr.getComunidad().size(); j++) {
@@ -39,6 +39,8 @@ public class Admindao extends SentToYouDao {
             usr.getComunidad().add(nuevouser);
             usr.guardarTxt(nuevouser);
         }
+        return respuesta;
+
     }
 
     /**
@@ -61,7 +63,7 @@ public class Admindao extends SentToYouDao {
                 String pwdconfirmacion = sc.nextLine();
                 if (newpwd.equals(pwdconfirmacion)) {
                     usr.getUser(victima).setPwd(newpwd);
-                    System.out.println("Constantes.PWDCHANGED");
+                    System.out.println(Constantes.PWDCHANGED);
                     salir=true;
                 }
             }

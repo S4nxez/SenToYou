@@ -8,7 +8,9 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UI {
-    public UI(){}
+    public UI() {
+    }
+
     public void main() throws IOException, ClassNotFoundException {
         Service serv = new Service();
         Scanner sc = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class UI {
         int o = 0;
 
         serv.cargarUsuarios("Usuarios.txt");
-        serv.cargarPaquetes("Paquetes");//hay que meter el metodo en service
+        // serv.cargarPaquetes("Paquetes");hay que meter el metodo en service
 
         while (o != 3) {
             // Esto es solo para el user
@@ -111,10 +113,10 @@ public class UI {
                         String respuesta = sc.nextLine();
                         if (respuesta.charAt(1) == 'y' || respuesta.charAt(1) == 'Y') {//el equalsignorecase no funciona
                             serv.crearAdmin(name, email, direccion, fechaNac, usrname, pwd);
-                            System.out.println(Constantes.USERCREADO+"admin"+usrname);
+                            System.out.println(Constantes.USERCREADO + "admin" + usrname);
                         } else {
                             serv.register(name, email, direccion, fechaNac, usrname, pwd);
-                            System.out.println(Constantes.USERCREADO+usrname);
+                            System.out.println(Constantes.USERCREADO + usrname);
                         }
                         break;
                     case 4:
@@ -129,10 +131,9 @@ public class UI {
 
                 while (u != 6) {
 
-                        System.out.println(Constantes.OPCIONESLOGIN);
-                        u = sc.nextInt();
-                        sc.nextLine();
-
+                    System.out.println(Constantes.OPCIONESLOGIN);
+                    u = sc.nextInt();
+                    sc.nextLine();
 
                     switch (u) {
                         case 1://ENVIAR PAQUETE
@@ -143,17 +144,17 @@ public class UI {
                             String recipient = sc.nextLine();
 
                             serv.EnviarPaquete(usrname, recipient, peso);
-                            if (serv.getStatus())break; //si que tiene amigos quiere decir esto
+                            if (serv.getStatus()) break; //si que tiene amigos quiere decir esto
 
                         case 2://AÑADIR AMIGOS
                             System.out.println(Constantes.AGREGA_AMIGO);
-                            String nomAmigo = sc.nextLine();
-                            serv.addFriend(usrname,nomAmigo);
+                            String noAmigo = sc.nextLine();
+                            serv.addFriend(usrname, noAmigo);
                             break;
                         case 3: //GESTIONAR PERFIL
                             System.out.println(Constantes.EDITARPERFIL);
                             int e = sc.nextInt();
-                            switch (e){
+                            switch (e) {
                                 case 1:
                                     System.out.print(Constantes.EDITARNOMBRE);
                                     //String nombreEdit = sc.nextLine();
@@ -165,17 +166,14 @@ public class UI {
                             }
                             break;
                         case 4:
-
-
                             break;
                         case 5:
                             break;
-
                     }
+                    serv.escribirUsuarios();
                 }
             }
         }
         sc.close();
-
     }
 }

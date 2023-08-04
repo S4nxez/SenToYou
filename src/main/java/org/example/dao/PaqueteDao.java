@@ -2,17 +2,20 @@ package org.example.dao;
 
 import org.example.common.Constantes;
 import org.example.domain.Paquete;
+import org.example.domain.User;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class PaqueteDao extends SentToYouDao{
     private boolean status=false;
 
-    public cargarPaquetes(){//tenemos que hacer que el metodo sea como el cargarusuarios del userdao pero que lo haga en un binario y no en un txt
+//    public cargarPaquetes(){//tenemos que hacer que el metodo sea como el cargarusuarios del userdao pero que lo haga en un binario y no en un txt
 
-    }
+//    }
 
     public void enviarPaquete(String nombreemisor, String nombrereceptor, float peso) throws IOException {
         if (esAmigo(nombreemisor, nombrereceptor)) {

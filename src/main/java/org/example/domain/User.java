@@ -56,10 +56,12 @@ public class User implements Serializable{
         this.pwd = pwd;
     }
 
-
-
     @Override
     public String toString() {
         return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+usrdao.listarAmigos(username);
+    }
+
+    public void setFriends(ArrayList<String> friendsUpdt) {
+        Friends = friendsUpdt;
     }
 }

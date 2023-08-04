@@ -21,7 +21,19 @@ public class UserDao extends SentToYouDao{
             comunidad.add(usuario);
         }
     }//ARCHIVOS NO BINARIOS, READ
-
+    public void escribirUsuarios(String file){
+        Scanner scanner = null;
+        comunidad = new ArrayList<>();
+        try {
+            scanner = new Scanner(new File(file));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        while (scanner.hasNextLine()){
+            User usuario = new User(scanner.nextLine());
+            comunidad.add(usuario);
+        }
+    }
 
     //Método que recibe un usuario y comprueba si está en el sistema.
     public boolean guardar(User user, ArrayList<User> comunidad, int i){
@@ -66,14 +78,7 @@ public class UserDao extends SentToYouDao{
     }
 
     //private void updateUser(User user){}
-    public boolean addFriend(String solicitante, String amigo){
-        for (User getUser(solicitante) : comunidad) {
-            if getUser(solicitante).getFriends()//hazlo tu, si tiene un amigo ya con el nombre del que quiere agregar, que no. Else añades el username al 
-                                                //arraylist de string del getuser(solicitante)
-        } 
 
-        return true;
-    }
 
 
 
