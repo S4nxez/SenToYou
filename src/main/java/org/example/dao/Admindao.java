@@ -69,6 +69,7 @@ public class Admindao extends SentToYouDao {
             }
         }
         sc.close();
+
     }
 
     /**
