@@ -1,6 +1,7 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
+import org.example.common.*;
 import org.example.service.Service;
 
 import java.io.IOException;
@@ -8,7 +9,9 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UI {
-    public UI(){}
+    public UI() {
+    }
+
     public void main() throws IOException, ClassNotFoundException {
         Service serv = new Service();
         Scanner sc = new Scanner(System.in);
@@ -111,14 +114,11 @@ public class UI {
                         String respuesta = sc.nextLine();
                         if (respuesta.charAt(1) == 'y' || respuesta.charAt(1) == 'Y') {//el equalsignorecase no funciona
                             serv.crearAdmin(name, email, direccion, fechaNac, usrname, pwd);
-                            System.out.println(Constantes.USERCREADO+"admin"+usrname);
+                            System.out.println(Constantes.USERCREADO + "admin" + usrname);
                         } else {
-                            try {
-                                serv.register(name, email, direccion, fechaNac, usrname, pwd);
-                            } catch (NuestraExcepcion e) {
-                                System.out.println("El usuario ya existe.");
-                            }
-                            System.out.println(Constantes.USERCREADO+usrname);
+
+                            serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                            System.out.println(Constantes.USERCREADO + usrname);
                         }
                         break;
                     case 4:
@@ -136,7 +136,6 @@ public class UI {
                     System.out.println(Constantes.OPCIONESLOGIN);
                     u = sc.nextInt();
                     sc.nextLine();
-
 
                     switch (u) {
                         case 1://ENVIAR PAQUETE
@@ -169,18 +168,15 @@ public class UI {
                             }
                             break;
                         case 4:
-
-
                             break;
                         case 5:
                             break;
 
                     }
-                    serv.escribirUsuarios();
                 }
             }
         }
+        serv.escribirUsuarios();
         sc.close();
-
     }
 }

@@ -37,7 +37,7 @@ public class Admindao extends SentToYouDao {
         if (respuesta) { // Creamos el usuario
             User nuevouser = new User(name, email, direccion, fecha_nac, "admin" + username, pwd);
             usr.getComunidad().add(nuevouser);
-            usr.guardarTxt(nuevouser);
+            usr.guardarTxt(true);
         }
         return respuesta;
 
@@ -76,7 +76,7 @@ public class Admindao extends SentToYouDao {
      * Decir todos los usuarios que existen en comunidad.
      */
     public void listarUsuarios() {
-        usr.getComunidad().forEach(User -> System.out.println(User));
+        usr.getComunidad().forEach(System.out::println);
         /*
          * Seria lo mismo que esto
          * for (User usuario : srv.getComunidad()) {

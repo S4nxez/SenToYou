@@ -61,7 +61,7 @@ public class User implements Serializable{
         return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+usrdao.listarAmigos(username);
     }
 
-    public void setFriends(ArrayList<String> friendsUpdt) {
-        Friends = friendsUpdt;
+    public void setFriends(ArrayList<String> Friends) {
+        this.Friends = Friends;
     }
 }

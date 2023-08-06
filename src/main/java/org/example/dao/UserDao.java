@@ -50,14 +50,14 @@ public class UserDao extends SentToYouDao {
         boolean respuesta=true ;
         for (int j = 0; j < comunidad.size(); j++) {
             //Verificamos que el usuario no esté ya creado
-            if (name.equals(comunidad.get(j).getUsrName()) || email.equals(comunidad.get(j).getEmail())){
+            if (usrname.equals(comunidad.get(j).getUsrName()) || email.equals(comunidad.get(j).getEmail())){
                 respuesta=false;
                 System.out.println(Constantes.USRNODISP);}
         }
         if (respuesta) { //Creamos el usuario
             User nuevouser = new User(name, email, dir, fechaNac, usrname, passwd);
             comunidad.add(nuevouser);
-            guardarTxt(nuevouser);
+            guardarTxt(true);
         }
     }
 
@@ -66,32 +66,34 @@ public class UserDao extends SentToYouDao {
 
     // Método que verifica un inicio de sesión.
     public boolean login(String username, String pwd) {
-        User usuario = getUser(username);
-        if (usuario.getUsrName().equals(username) && usuario.getPwd().equals(pwd)) {
-            return true;
-        } else return false;
-    }
-
-    // Metodo para guardar los usuarios creados en un fichero antes de cerrar el
-    // programa.
-    public void guardarTxt(User user) throws FileNotFoundException, IOException {
         try {
-            FileOutputStream fout = new FileOutputStream("UsuariosBinario.txt", true);
-            ObjectOutputStream out = new ObjectOutputStream(fout);
-            out.writeObject(user.toString());
-            out.close();
+            User usuario = getUser(username);
 
-        } catch (FileNotFoundException e) {
-            System.out.println("Archivo no encontrado, creando uno nuevo");
-            File file = new File("UsuariosBinario.txt");
-            guardarTxt(user);
+            if (usuario.getUsrName().equals(username) && usuario.getPwd().equals(pwd)) {
+                return true;
+            } else return false;
+        }catch (NullPointerException e){
+            return false;
         }
     }
 
-    //private void updateUser(User user){}
-
-
-
+    public void guardarTxt(boolean append) throws IOException { //habrá problemas con el parametro de entrada append, debería añadir algun if para diferenciar de cuando solo quiero meter un user mas y no toda la lista appendada
+        try {
+            FileWriter fout = new FileWriter("Usuarios.txt", append);
+            BufferedWriter out = new BufferedWriter(fout);
+            int i=0;
+            for (User u: comunidad) {
+                i++;
+                out.write(u.toString());
+                if (i < comunidad.size())out.newLine();
+            }
+            out.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no encontrado, creando uno nuevo");
+            File file = new File("Usuarios.txt");
+            guardarTxt(true);
+        }
+    }
 
     public boolean removeFriend(User amigo) {
         return true;

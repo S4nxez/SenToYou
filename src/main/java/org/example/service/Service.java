@@ -46,16 +46,15 @@ public class Service {
     }
 
     public void escribirUsuarios() {
-        usrdao.escribirUsuarios("Usuarios.txt");
+        try {
+            usrdao.guardarTxt(false);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean login(String username, String pwd) {
         return usrdao.login(username, pwd);
-    }
-
-
-    public void guardarTxt(User user) throws FileNotFoundException, IOException, ClassNotFoundException {
-        usrdao.guardarTxt(user);
     }
 
     public User getUser(String username) {
@@ -75,7 +74,7 @@ public class Service {
     }
 
     public void crearAdmin(String name, String email, String direccion, LocalDate fecha_nac, String username,
-            String pwd) throws FileNotFoundException, ClassNotFoundException, IOException {
+            String pwd) throws ClassNotFoundException, IOException {
         admin.crearAdmin(name, email, direccion, fecha_nac, username, pwd);
     }
 
@@ -87,7 +86,6 @@ public class Service {
         admin.listarUsuarios();
     }
 
-
     public String listarAmigos(String username) {
         return usrdao.listarAmigos(username);
     }
@@ -95,6 +93,5 @@ public class Service {
     public List<User> consulta(String usuario) {
         return usrdao.consulta(usuario);
     }
-
 
 }
