@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,15 +55,14 @@ public class SentToYouDao {
         User usr = getUser(solicitante);
         boolean returneo = !esAmigo(solicitante, amigo) && getUser(amigo).getUsrName() != null;
         if (returneo){
-            ArrayList<String> friendsUpdt = getUser(solicitante).getFriends();
-            if (friendsUpdt==null)friendsUpdt= new ArrayList<>();
-            friendsUpdt.add(amigo.toLowerCase());
-            getUser(solicitante).setFriends(friendsUpdt);
+            getUser(solicitante).setFriends(amigo);
             usr=getUser(solicitante);
         }
-        for (User u : comunidad) {
-            if (u.getUsrName().equalsIgnoreCase(solicitante)){
-                comunidad.remove(u);
+        Iterator<User> iterator = comunidad.iterator();
+        while (iterator.hasNext()) {
+            User u = iterator.next();
+            if (u.getUsrName().equalsIgnoreCase(solicitante)) {
+                iterator.remove();
                 comunidad.add(usr);
                 System.out.println(usr.getFriends());
                 System.out.println(usr);

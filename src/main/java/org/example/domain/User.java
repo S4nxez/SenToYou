@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class User implements Serializable{
     private String name, email, direccion, username, pwd;
@@ -31,10 +32,13 @@ public class User implements Serializable{
         name = campos[0];
         email = campos[1];
         direccion = campos[2];
-        //Convertir fecha_nac a LocalDate
         fecha_nac = LocalDate.parse(campos[3], DateTimeFormatter.ofPattern("yyyy-dd-MM"));
         username = campos[4];
         pwd = campos[5];
+        String linea2 = campos[6];
+        String[] amigos = linea2.split(",");
+        if (Friends==null)Friends=new ArrayList<>();
+        Collections.addAll(Friends, amigos);
     }
     public ArrayList<String> getFriends() {
         return Friends;
@@ -58,10 +62,11 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+usrdao.listarAmigos(username);
+        return name+":"+email+":"+direccion+":"+fecha_nac+":"+username+":"+pwd+":"+usrdao.listarAmigos(username)+":"+Friends.toString();
     }
 
-    public void setFriends(ArrayList<String> Friends) {
-        this.Friends = Friends;
+    public void setFriends(String amigo) {
+        if (Friends==null)Friends=new ArrayList<>();
+        this.Friends.add(amigo);
     }
 }

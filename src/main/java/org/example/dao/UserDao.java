@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class UserDao extends SentToYouDao {
 
     public void cargarUsuarios(String file) {
-        Scanner scanner = null;
+        Scanner scanner;
         comunidad = new ArrayList<>();
         try {
             scanner = new Scanner(new File(file));
@@ -26,7 +26,7 @@ public class UserDao extends SentToYouDao {
         }
     }//ARCHIVOS NO BINARIOS, READ
     public void escribirUsuarios(String file){
-        Scanner scanner = null;
+        Scanner scanner;
         comunidad = new ArrayList<>();
         try {
             scanner = new Scanner(new File(file));

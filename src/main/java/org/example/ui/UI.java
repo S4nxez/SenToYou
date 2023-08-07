@@ -1,7 +1,6 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
-import org.example.common.*;
 import org.example.service.Service;
 
 import java.io.IOException;
@@ -9,8 +8,6 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UI {
-    public UI() {
-    }
 
     public void main() throws IOException, ClassNotFoundException {
         Service serv = new Service();
@@ -125,11 +122,9 @@ public class UI {
                         break;
                     case 5:
                         break;
-
                 }
             } else {
                 int u = 0;
-
 
                 while (u != 6) {
 
