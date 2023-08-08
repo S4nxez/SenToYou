@@ -1,3 +1,3 @@
-IgnacioLLorente:das@hotmail.es:c\Bahia de palma 9, ptal A, 1ºA:2002-05-01:nacho:1234::[BUG]
-admin:admin@admin.admin:blank:0001-01-01:admin:admin::[BUG,  ]
-daniel:cobgh@hotmail.es:c\Bahia de palma 9, ptal A, 1ºA:2002-05-01:sanxez:1234::[BUG, nacho]
+IgnacioLLorente:das@hotmail.es:c\Bahia de palma 9, ptal A, 1ºA:2002-05-01:nacho:1234:
+admin:admin@admin.admin:blank:0001-01-01:admin:admin:
+daniel:cobgh@hotmail.es:c\Bahia de palma 9, ptal A, 1ºA:2002-05-01:sanxez:1234:nacho

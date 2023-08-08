@@ -85,6 +85,8 @@ public class UserDao extends SentToYouDao {
             for (User u: comunidad) {
                 i++;
                 out.write(u.toString());
+                if(u.getFriends().equals("BUG"))
+                    out.write("BUG,");
                 if (i < comunidad.size())out.newLine();
             }
             out.close();
