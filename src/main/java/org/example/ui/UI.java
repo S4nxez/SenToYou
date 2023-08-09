@@ -1,6 +1,7 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
+import org.example.domain.User;
 import org.example.service.Service;
 
 import java.io.IOException;
@@ -151,10 +152,12 @@ public class UI {
                         case 3: //GESTIONAR PERFIL
                             System.out.println(Constantes.EDITARPERFIL);
                             int e = sc.nextInt();
+                            sc.nextLine();
                             switch (e) {
                                 case 1:
                                     System.out.print(Constantes.EDITARNOMBRE);
-                                    //String nombreEdit = sc.nextLine();
+                                    String nombreEdit = sc.nextLine();
+                                    serv.setNombre(nombreEdit, serv.getUser(usrname));
                                     break;
                                 case 2:
                                     break;

@@ -94,4 +94,7 @@ public class Service {
         return usrdao.consulta(usuario);
     }
 
+    public void setNombre(String nombre, User user) {
+        user.setNombre(nombre);
+    }
 }

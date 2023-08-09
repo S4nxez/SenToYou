@@ -83,4 +83,8 @@ public class User implements Serializable{
         if (Friends==null)Friends=new ArrayList<>();
         this.Friends.add(amigo);
     }
+
+    public void setNombre(String nombre) {
+        this.name = nombre;
+    }
 }
