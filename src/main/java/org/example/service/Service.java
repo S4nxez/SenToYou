@@ -29,7 +29,7 @@ public class Service {
         return usrdao.guardar(user, comunidad, i);
     }
 
-    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException {
+    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException{
         usrdao.register(name, email, dir, fechaNac, usrname, passwd);
     }
 
@@ -74,8 +74,8 @@ public class Service {
         admin.crearAdmin(name, email, direccion, fecha_nac, username, pwd);
     }
 
-    public void setPassword(String administrador) {
-        admin.setPassword(administrador);
+    public void setPassword(User user, String pwd) {
+        admin.setPassword(pwd);
     }
 
     public void listarUsuarios() {
@@ -92,5 +92,9 @@ public class Service {
 
     public void setNombre(String nombre, User user) {
         user.setNombre(nombre);
+    }
+
+    public void setUsrname(String nuevoUsrname, String viejoUsrnm) {
+        if (usrdao.nombreDisponible(nuevoUsrname))usrdao.setUsrnm(nuevoUsrname, viejoUsrnm);
     }
 }

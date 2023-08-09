@@ -36,4 +36,6 @@ public class Constantes {
     public static final String EDITARPERFIL= "1.Editar nombre\n2.Cambiar contraseña\n3.Cambiar nombre de usuario";
     public static final String EDITARNOMBRE= "Introduzca su nuevo nombre de usuario: ";
     public static final String ADDFRIENDERROR = "Error al intentar añadir al amigo";
+    public static final String EDITARCONTRASENYA = "Introduzca su contraseña actual: ";
+    public static final String EDITARUSRNAME = "Introduzca su nuevo nombre de usuario:";
 }

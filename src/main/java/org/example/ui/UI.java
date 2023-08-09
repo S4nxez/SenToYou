@@ -1,7 +1,6 @@
 package org.example.ui;
 
 import org.example.common.Constantes;
-import org.example.domain.User;
 import org.example.service.Service;
 
 import java.io.IOException;
@@ -57,8 +56,7 @@ public class UI {
                     System.out.print("             " + Constantes.ANYO + ": ");
                     int anyo = sc.nextInt();
                     System.out.print("             " + Constantes.MES + ": ");
-                    int mes = sc.nextInt();// mes--; hay clases para las fechas que usan enero para el 0 la que he
-                    // puesto creo que no.
+                    int mes = sc.nextInt();
                     System.out.print("             " + Constantes.DIA + ": ");
                     int dia = sc.nextInt();
                     LocalDate fechaNac = LocalDate.of(anyo, mes, dia);
@@ -82,7 +80,8 @@ public class UI {
                 int u = sc.nextInt();
                 switch (u) {
                     case 1:
-                        serv.setPassword(usrname);
+                        String user = sc.nextLine();
+                        serv.setPassword(serv.getUser(user), usrname);
                         break;
                     case 2:
                         serv.listarUsuarios();
@@ -160,16 +159,24 @@ public class UI {
                                     serv.setNombre(nombreEdit, serv.getUser(usrname));
                                     break;
                                 case 2:
+                                    System.out.println(Constantes.EDITARCONTRASENYA);
+                                    String pwd = sc.nextLine();
+                                    if(serv.login(usrname, pwd)) {
+                                        System.out.println(Constantes.ASKNEWPWD);
+                                        pwd = sc.nextLine();
+                                        serv.setPassword(serv.getUser(usrname), pwd);
+                                    }
                                     break;
                                 case 3:
+                                    System.out.println(Constantes.EDITARUSRNAME);
+                                    String nuevoUsrname = sc.nextLine();
+                                    serv.setUsrname(nuevoUsrname, usrname);
                                     break;
                             }
                             break;
                         case 4:
                             break;
                         case 5:
-                            break;
-
                     }
                 }
             }

@@ -87,4 +87,8 @@ public class User implements Serializable{
     public void setNombre(String nombre) {
         this.name = nombre;
     }
+
+    public void setUsrname(String usrname) {
+        this.username=usrname;
+    }
 }
