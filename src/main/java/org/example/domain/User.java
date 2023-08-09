@@ -37,8 +37,11 @@ public class User implements Serializable{
         username = campos[4];
         pwd = campos[5];
         String linea2 = campos[6];
-        String[] amigos = linea2.split(",");
-        if (Friends==null)Friends=new ArrayList<>();
+        String[] amigos = linea2.split(", ");
+        if (Friends==null){
+            Friends=new ArrayList<>();
+            Friends.add("BUG");
+        }
         Collections.addAll(Friends, amigos);
     }
     public ArrayList<String> getFriends() {
@@ -68,7 +71,6 @@ public class User implements Serializable{
     private String friendsToString(String input){
         String[] elements = input.substring(1, input.length() - 1).split(", ");
         StringBuilder output = new StringBuilder();
-
         for (int i = 1; i < elements.length; i++) {
             output.append(elements[i]);
             if (i < elements.length - 1) {
