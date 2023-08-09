@@ -147,7 +147,7 @@ public class UI {
                         case 2://AÑADIR AMIGOS
                             System.out.println(Constantes.AGREGA_AMIGO);
                             String noAmigo = sc.nextLine();
-                            serv.addFriend(usrname, noAmigo);
+                            if (!serv.addFriend(usrname, noAmigo)) System.out.println(Constantes.ADDFRIENDERROR);
                             break;
                         case 3: //GESTIONAR PERFIL
                             System.out.println(Constantes.EDITARPERFIL);

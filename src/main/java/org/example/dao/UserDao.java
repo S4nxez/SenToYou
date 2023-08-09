@@ -1,8 +1,6 @@
 package org.example.dao;
 
-import org.example.common.ComprobacionNuestraExcepcion;
 import org.example.common.Constantes;
-import org.example.common.NuestraExcepcion;
 import org.example.domain.User;
 import java.io.*;
 import java.time.LocalDate;
@@ -41,28 +39,24 @@ public class UserDao extends SentToYouDao {
 
     //Método que recibe un usuario y comprueba si está en el sistema.
     public boolean guardar(User user, ArrayList<User> comunidad, int i){
-        if(user.getUsrName().equals(comunidad.get(i).getUsrName())) return false;
-        else return true;
+        return !user.getUsrName().equals(comunidad.get(i).getUsrName());
     }
 
     //Método que registra un nuevo usuario en el sistema
-    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws FileNotFoundException, ClassNotFoundException, IOException{
+    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException{
         boolean respuesta=true ;
-        for (int j = 0; j < comunidad.size(); j++) {
+        for (User user : comunidad) {
             //Verificamos que el usuario no esté ya creado
-            if (usrname.equals(comunidad.get(j).getUsrName()) || email.equals(comunidad.get(j).getEmail())){
-                respuesta=false;
+            if (usrname.equals(user.getUsrName()) || email.equals(user.getEmail())) {
+                respuesta = false;
                 System.out.println(Constantes.USRNODISP);
             }
         }
         if (respuesta) { //Creamos el usuario
-            User nuevouser = new User(name, email, dir, fechaNac, usrname, passwd);
-            comunidad.add(nuevouser);
+            User nuevoUser = new User(name, email, dir, fechaNac, usrname, passwd);
+            comunidad.add(nuevoUser);
             guardarTxt(false);
         }
-    }
-
-    public void cargarUsers() throws FileNotFoundException {
     }
 
     // Método que verifica un inicio de sesión.
@@ -70,15 +64,13 @@ public class UserDao extends SentToYouDao {
         try {
             User usuario = getUser(username);
 
-            if (usuario.getUsrName().equals(username) && usuario.getPwd().equals(pwd)) {
-                return true;
-            } else return false;
+            return usuario.getUsrName().equals(username) && usuario.getPwd().equals(pwd);
         }catch (NullPointerException e){
             return false;
         }
     }
 
-    public void guardarTxt(boolean append) throws IOException { //habrá problemas con el parametro de entrada append, debería añadir algun if para diferenciar de cuando solo quiero meter un user mas y no toda la lista appendada
+    public void guardarTxt(boolean append) throws IOException { //habrá problemas con el parámetro de entrada append, debería añadir algun if para diferenciar de cuando solo quiero meter un user mas y no toda la lista appendada
         try {
             FileWriter fout = new FileWriter("Usuarios.txt", append);
             BufferedWriter out = new BufferedWriter(fout);
@@ -93,7 +85,6 @@ public class UserDao extends SentToYouDao {
             out.close();
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado, creando uno nuevo");
-            File file = new File("Usuarios.txt");
             guardarTxt(true);
         }
     }

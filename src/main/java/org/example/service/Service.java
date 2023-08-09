@@ -6,7 +6,6 @@ import org.example.dao.UserDao;
 import org.example.domain.User;
 import org.example.dao.Admindao;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,9 +27,6 @@ public class Service {
 
     public boolean guardar(User user, ArrayList<User> comunidad, int i) {
         return usrdao.guardar(user, comunidad, i);
-    }
-
-    public void cargarPaquetes(String paquetes) {
     }
 
     public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException, ClassNotFoundException {
