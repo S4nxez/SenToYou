@@ -29,8 +29,8 @@ public class Service {
         return usrdao.guardar(user, comunidad, i);
     }
 
-    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException{
-        usrdao.register(name, email, dir, fechaNac, usrname, passwd);
+    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd, boolean admin) throws IOException{
+        usrdao.register(name, email, dir, fechaNac, usrname, passwd, admin);
     }
 
     public void EnviarPaquete(String UsuarioEmisor, String destinatario, float peso) throws IOException {

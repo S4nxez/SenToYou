@@ -3,10 +3,7 @@ package org.example.dao;
 import org.example.domain.Paquete;
 import org.example.domain.User;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +27,8 @@ public class SentToYouDao {
     }
     public String listarAmigos(String username) {
         StringBuilder respuesta = new StringBuilder();
-        /*for (int i = 0; i < getUser(username).getFriends().size(); i++) {
+        /*
+        for (int i = 0; i < getUser(username).getFriends().size(); i++) {
             respuesta.append(getUser(username).getFriends().get(i)).append(",");
         }*/
         for (String u: getUser(username).getFriends()) {

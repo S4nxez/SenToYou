@@ -18,7 +18,7 @@ public class UI {
         int o = 0;
 
         serv.cargarUsuarios("Usuarios.txt");
-        // serv.cargarPaquetes("Paquetes");hay que meter el metodo en service
+        // serv.cargarPaquetes("Paquetes"); hay que meter el método en service
 
         while (o != 3) {
             // Esto es solo para el user
@@ -65,7 +65,7 @@ public class UI {
                     usrname = sc.nextLine();
                     System.out.print(Constantes.CONTRASENYA);
                     String pwd = sc.nextLine();
-                    serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                    serv.register(name, email, direccion, fechaNac, usrname, pwd, false);
                     break;
                 case 3:
                     break;
@@ -86,8 +86,8 @@ public class UI {
                     case 2:
                         serv.listarUsuarios();
                         break;
-                    case 3:
-                        // Recogemos los datos del usuario para registrarle
+                    case 3: //Logeao como admin creas un user
+                        sc.nextLine();
                         System.out.print(Constantes.NOMBRE);
                         String name = sc.nextLine();
                         System.out.print(Constantes.CORREO);
@@ -109,12 +109,11 @@ public class UI {
                         String pwd = sc.nextLine();
                         System.out.println(Constantes.ADMINONORMAL); // "Quieres que el usuario sea administrador? (y/n)"
                         String respuesta = sc.nextLine();
-                        if (respuesta.charAt(1) == 'y' || respuesta.charAt(1) == 'Y') {//el equalsignorecase no funciona
-                            serv.crearAdmin(name, email, direccion, fechaNac, usrname, pwd);
+                        if (respuesta.equalsIgnoreCase("y")) {
+                            serv.register(name, email, direccion, fechaNac, usrname, pwd, true);
                             System.out.println(Constantes.USERCREADO + "admin" + usrname);
                         } else {
-
-                            serv.register(name, email, direccion, fechaNac, usrname, pwd);
+                            serv.register(name, email, direccion, fechaNac, usrname, pwd, false);
                             System.out.println(Constantes.USERCREADO + usrname);
                         }
                         break;

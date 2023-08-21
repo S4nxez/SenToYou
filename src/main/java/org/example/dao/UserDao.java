@@ -45,12 +45,14 @@ public class UserDao extends SentToYouDao {
     }
 
     //Método que registra un nuevo usuario en el sistema
-    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd) throws IOException {
+    public void register(String name, String email, String dir, LocalDate fechaNac, String usrname, String passwd, boolean admin) throws IOException {
+        if(admin)usrname= "admin"+usrname;
         boolean respuesta = nombreDisponible(usrname);
         for (User user : comunidad) {
             //Verificamos que el usuario no esté ya creado
             if (email.equals(user.getEmail())) {
                 respuesta = false;
+                break;
             }
         }
         if (respuesta) { //Creamos el usuario
@@ -84,7 +86,7 @@ public class UserDao extends SentToYouDao {
         }
     }
 
-    public void guardarTxt(boolean append) throws IOException { //habrá problemas con el parámetro de entrada append, debería añadir algun if para diferenciar de cuando solo quiero meter un user mas y no toda la lista appendada
+    public void guardarTxt(boolean append) throws IOException { //habrá problemas con el parámetro de entrada append, debería añadir algún if para diferenciar de cuando solo quiero meter un user más y no toda la lista appendada
         try {
             FileWriter fout = new FileWriter("Usuarios.txt", append);
             BufferedWriter out = new BufferedWriter(fout);
