@@ -73,9 +73,9 @@ public class SentToYouDao {
     }
 
     //Por cada usuario que tenga el mismo nombre, se devuelve en la consulta
-    public List<User> consulta(String usuario) {
+    public List<User> consulta(String name) {
         return comunidad.stream()
-        .filter(User -> User.getUsrName().equals(usuario))
+        .filter(User -> User.getName().equals(name))
         .collect(Collectors.toList());
     }
 }

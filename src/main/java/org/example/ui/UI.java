@@ -135,7 +135,9 @@ public class UI {
                     switch (u) {
                         case 1://ENVIAR PAQUETE
                             System.out.println(Constantes.PESO);
-                            float peso = sc.nextFloat();//siempre con coma soluciona con trycach
+                            String input = sc.nextLine();
+                            input = input.replace(',', '.');
+                            float peso = Float.parseFloat(input);
                             System.out.println(Constantes.RECIPIENT_USRNM);
                             sc.nextLine();
                             String recipient = sc.nextLine();
@@ -161,7 +163,7 @@ public class UI {
                                 case 2:
                                     System.out.println(Constantes.EDITARCONTRASENYA);
                                     String pwd = sc.nextLine();
-                                    if(serv.login(usrname, pwd)) {
+                                    if (serv.login(usrname, pwd)) {
                                         System.out.println(Constantes.ASKNEWPWD);
                                         pwd = sc.nextLine();
                                         serv.setPassword(serv.getUser(usrname), pwd);

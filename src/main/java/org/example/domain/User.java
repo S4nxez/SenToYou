@@ -51,6 +51,9 @@ public class User implements Serializable{
     public String getUsrName(){
         return username;
     }
+    public String getName(){
+        return name;
+    }
 
     public String getEmail() {
         return email;
