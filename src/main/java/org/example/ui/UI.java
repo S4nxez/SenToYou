@@ -138,11 +138,11 @@ public class UI {
                             input = input.replace(',', '.');
                             float peso = Float.parseFloat(input);
                             System.out.println(Constantes.RECIPIENT_USRNM);
-                            sc.nextLine();
                             String recipient = sc.nextLine();
 
                             serv.EnviarPaquete(usrname, recipient, peso);
-                            if (serv.getStatus()) break; //si que tiene amigos quiere decir esto
+                            if (serv.getStatus())break; //si que tiene amigos quiere decir esto
+                            System.out.println(Constantes.NOAMIGOS);
 
                         case 2://AÑADIR AMIGOS
                             System.out.println(Constantes.AGREGA_AMIGO);

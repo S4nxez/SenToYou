@@ -14,24 +14,25 @@ public class SentToYouDao {
     protected List<User> comunidad = new ArrayList<>();
 
     public SentToYouDao() {
-        paquetes= new ArrayList<>();
+        paquetes = new ArrayList<>();
     }
 
-    public User getUser(String username){
-        User usReturn = new User(null,null,null,null,null,null);
+    public User getUser(String username) {
+        User usReturn = new User(null, null, null, null, null, null);
         for (User user : comunidad) {
             if (user.getUsrName().equals(username))
                 usReturn = user;
         }
         return usReturn;
     }
+
     public String listarAmigos(String username) {
         StringBuilder respuesta = new StringBuilder();
         /*
         for (int i = 0; i < getUser(username).getFriends().size(); i++) {
             respuesta.append(getUser(username).getFriends().get(i)).append(",");
         }*/
-        for (String u: getUser(username).getFriends()) {
+        for (String u : getUser(username).getFriends()) {
             respuesta.append(u).append(",");
         }
         return respuesta.toString();
@@ -39,23 +40,25 @@ public class SentToYouDao {
 
     public boolean esAmigo(String solicitante, String solicitado) {
         boolean returneo = false;
-        if (getUser(solicitante).getFriends() != null) {
-            for (String i : getUser(solicitante).getFriends()) {
-                if (i.equalsIgnoreCase(solicitado)) {
-                    returneo = true;
-                    break;
-                }
+
+        for (String i : getUser(solicitante).getFriends()) {
+            if (i.equalsIgnoreCase(solicitado)) {
+                returneo = true;
+                break;
             }
         }
+
         return returneo;
     }
-    public boolean addFriend(String solicitante, String amigo){
+
+    public boolean addFriend(String solicitante, String amigo) {
         User usr = getUser(solicitante);
-        boolean returneo = !esAmigo(solicitante, amigo) && getUser(amigo).getUsrName() != null;
-        if (returneo){
+        boolean returneo = esAmigo(solicitante, amigo) || (getUser(amigo).getUsrName() == null);
+        if (!returneo) {
             getUser(solicitante).setFriends(amigo);
-            usr=getUser(solicitante);
-        }
+            usr = getUser(solicitante);
+            returneo = true;
+        } else returneo = false;
         Iterator<User> iterator = comunidad.iterator();
         while (iterator.hasNext()) {
             User u = iterator.next();
@@ -73,8 +76,8 @@ public class SentToYouDao {
     //Por cada usuario que tenga el mismo nombre, se devuelve en la consulta
     public List<User> consulta(String name) {
         return comunidad.stream()
-        .filter(User -> User.getName().equals(name))
-        .collect(Collectors.toList());
+                .filter(User -> User.getName().equals(name))
+                .collect(Collectors.toList());
     }
 }
 

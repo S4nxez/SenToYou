@@ -7,7 +7,6 @@ public class Constantes {
     public static final String LOGIN= "Iniciar Sesión";
     public static final String USRNAME="Nombre de usuario: ";
     public static final String CONTRASENYA="Contraseña: ";
-    public static final String LOGINOK="Inicio de sesión correcto.";
     public static final String LOGINFALSE="Inicio de sesión incorrecto.";
     public static final String REGISTRO="Registro";
     public static final String REGISTROFALSE="Registro incorrecto.";

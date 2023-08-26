@@ -1,20 +1,16 @@
 package org.example.domain;
 
-import org.example.dao.UserDao;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
 public class User implements Serializable{
     private String name, email, direccion, username, pwd;
-    LocalDate fecha_nac = LocalDate.now();
+    LocalDate fecha_nac;
     ArrayList<String> Friends;
 
-    UserDao usrdao = new UserDao();
     public User(String name, String email, String direccion, LocalDate fecha_nac, String username, String pwd) {
         this.name = name;
         this.email = email;

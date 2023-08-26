@@ -1,5 +1,4 @@
 package org.example.dao;
-
 import org.example.common.Constantes;
 import org.example.domain.User;
 
@@ -117,12 +116,3 @@ public class UserDao extends SentToYouDao {
         getUser(viejoUsrnm).setUsrname(nuevoUsrname);
     }
 }
-
-
-/*
-    ----------Parking--------
-    |                       |
-    |                       |
-    |                       |
-    _________________________
- */

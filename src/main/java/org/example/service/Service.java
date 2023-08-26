@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.dao.PaqueteDao;
-import org.example.dao.SentToYouDao;
 import org.example.dao.UserDao;
 import org.example.domain.User;
 import org.example.dao.Admindao;
@@ -15,8 +14,6 @@ public class Service {
     UserDao usrdao = new UserDao();
     Admindao admin = new Admindao();
     PaqueteDao pqtDao = new PaqueteDao();
-    SentToYouDao styDao = new SentToYouDao();
-
     public boolean getStatus() {
         return pqtDao.getStatus();
     }
